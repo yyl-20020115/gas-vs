@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="app.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="as.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="atof-generic.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="compress-debug.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cond.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="depend.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dw2gencfi.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dwarf2dbg.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ecoff.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ehopt.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="expr.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="flonum-copy.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="flonum-konst.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="flonum-mult.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="frags.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="hash.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="input-file.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="input-scrub.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="listing.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="literal.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="macro.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="messages.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="output-file.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="read.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="remap.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="sb.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stabs.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="subsegs.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="symbols.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="write.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="as.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="asintl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="bignum.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="bit_fix.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="cgen.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="compress-debug.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dw2gencfi.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dwarf2dbg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ecoff.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="emul.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="emul-target.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="expr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="flonum.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="frags.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="hash.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="input-file.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="itbl-cpu.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="itbl-lex.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="itbl-ops.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="itbl-parse.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="listing.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="macro.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="obj.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="obj-format.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="output-file.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="read.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="sb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="subsegs.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="symbols.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targ-cpu.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targ-env.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="tc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="write.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

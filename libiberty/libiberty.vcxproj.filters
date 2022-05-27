@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pex-common.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="simple-object-common.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vprintf-support.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="cp-demangle.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pexecute.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pex-one.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pex-win32.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="physmem.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="putenv.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="random.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="regex.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="rename.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="rindex.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="rust-demangle.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="safe-ctype.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="setenv.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="setproctitle.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="sha1.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="sigsetmask.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="simple-object.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="simple-object-coff.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="simple-object-elf.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="simple-object-mach-o.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="simple-object-xcoff.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="snprintf.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="sort.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="spaces.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="splay-tree.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stack-limit.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stpcpy.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stpncpy.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="strcasecmp.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="strchr.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="strdup.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="strerror.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="strncasecmp.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="strncmp.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="strndup.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="strnlen.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="strrchr.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="strsignal.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="strstr.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="strtod.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="strtol.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="strtoll.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="strtoul.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="strtoull.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="strverscmp.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="timeval-utils.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="tmpnam.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="unlink-if-ordinary.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="vasprintf.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="vprintf-support.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="waitpid.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="xasprintf.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="xatexit.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="xexit.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="xmalloc.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="xmemdup.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="xstrdup.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="xstrerror.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="xstrndup.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="xvasprintf.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="alloca.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="argv.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="bsearch_r.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="choose-temp.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="concat.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="copysign.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cp-demangle.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cp-demint.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cplus-dem.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="crc32.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="d-demangle.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dwarfnames.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dyn-string.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="fdmatch.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ffs.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="fibheap.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="filedescriptor.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="filename_cmp.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="floatformat.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="fnmatch.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="fopen_unlocked.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="getcwd.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="getopt.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="getopt1.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="getpagesize.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="getpwd.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="getruntime.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="gettimeofday.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="hashtab.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="hex.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="index.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="insque.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="lbasename.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="lrealpath.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="make-relative-prefix.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="make-temp-file.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="md5.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="memchr.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="memcmp.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="memcpy.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="memmem.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="memmove.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="mempcpy.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="memset.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="mkstemps.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="msdos.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="objalloc.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="obstack.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="partition.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pex-common.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="_doprnt.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="asprintf.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="atexit.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="basename.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="bcmp.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="bcopy.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="bsearch.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="bzero.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="clock.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

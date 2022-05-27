@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="bfd.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="bfdver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="coff-bfd.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ecoff-bfd.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="elf-bfd.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="elfcode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="elfcore.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="elfxx-ia64.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="elfxx-x86.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="genlink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="libbfd.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="libcoff.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="libecoff.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="libpei.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="pef.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="pef-traceback.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="peicode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="plugin.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="sysdep.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="version.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="archive.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="archive64.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="archures.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="bfd.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="bfdio.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="bfdwin.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="binary.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cache.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="coff-bfd.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="coffgen.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="coff-i386.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="coff-ia64.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cofflink.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="compress.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="corefile.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cpu-i386.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cpu-ia64.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cpu-ia64-opc.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cpu-iamcu.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cpu-k1om.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cpu-l1om.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dwarf1.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dwarf2.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ecoff.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ecofflink.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="elf.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="elf32.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="elf32-gen.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="elf32-i386.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="elf64.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="elf64-gen.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="elf64-x86-64.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="elf-attrs.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="elf-eh-frame.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="elf-ifunc.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="elflink.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="elfxx-ia64.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="elfxx-x86.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="format.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="hash.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ihex.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="init.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="libbfd.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="linker.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="merge.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="opncls.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pe-i386.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pei-i386.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pei-ia64.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pei-x86_64.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pex64igen.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pe-x86_64.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="plugin.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="reloc.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="section.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="simple.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="srec.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stab-syms.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="syms.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="targets.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="tekhex.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="verilog.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="peXXigenx.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
