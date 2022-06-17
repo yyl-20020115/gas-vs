@@ -31,6 +31,11 @@
 #elif defined(HAVE_INTTYPES_H)
 #include <inttypes.h>
 #endif
+
+#ifndef _CRT_DECLARE_NONSTDC_NAMES
+#define _CRT_DECLARE_NONSTDC_NAMES 1
+#endif
+
 #include <sys/types.h>
 #if !defined(HAVE_STDINT_H) && !defined(HAVE_INTTYPES_H) && \
     !defined(UINT64_MAX) && !defined(uint64_t)
@@ -70,6 +75,7 @@
 #if defined(__OpenBSD__)
 #include <machine/endian.h>
 #endif
+#include <sys/types.h>
 /* Detect endianess based on _BYTE_ORDER.  */
 #ifdef _BYTE_ORDER
 #if _BYTE_ORDER == _LITTLE_ENDIAN
@@ -130,8 +136,8 @@ struct ld_plugin_input_file
 {
   const char *name;
   int fd;
-  off_t offset;
-  off_t filesize;
+  _off_t offset;
+  _off_t filesize;
   void *handle;
 };
 

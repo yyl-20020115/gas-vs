@@ -49,6 +49,8 @@
 #define _LIT	".rdata"
 
 /********************** RELOCATION DIRECTIVES **********************/
+#ifndef external_reloc_defined
+#define external_reloc_defined
 struct external_reloc
 {
   char r_vaddr[4];
@@ -56,7 +58,7 @@ struct external_reloc
   char r_type[2];
   char r_offset[4];
 };
-
+#endif
 #define RELOC struct external_reloc
 #define RELSZ 14
 

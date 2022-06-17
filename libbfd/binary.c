@@ -56,7 +56,7 @@ binary_mkobject (bfd *abfd ATTRIBUTE_UNUSED)
 static bfd_cleanup
 binary_object_p (bfd *abfd)
 {
-  struct stat statbuf;
+  struct _stat statbuf;
   asection *sec;
   flagword flags;
 

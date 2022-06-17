@@ -55,9 +55,9 @@
    wasting too much time.  */
 
 #include "libpei.h"
-#if defined(_MSC_VER)
-//#include <winnt.h>
-#endif
+#include <../include/coff/pe.h>
+#include "bfd.h"
+#include <coff/i386.h>
 static bool (*pe_saved_coff_bfd_print_private_bfd_data) (bfd *, void *) =
 #ifndef coff_bfd_print_private_bfd_data
      NULL;
@@ -254,7 +254,7 @@ coff_swap_scnhdr_in (bfd * abfd, void * ext, void * in)
     scnhdr_int->s_size = scnhdr_int->s_paddr;
 #endif
 }
-
+bool in_reloc_p(bfd* abfd ATTRIBUTE_UNUSED, reloc_howto_type* howto);
 static bool
 pe_mkobject (bfd * abfd)
 {
@@ -491,7 +491,7 @@ pe_ILF_make_a_symbol_reloc (pe_ILF_vars *		vars,
 
   internal->r_vaddr  = address;
   internal->r_symndx = sym_index;
-  internal->r_type   = entry->howto->type;
+  internal->r_type   = entry->howto ? entry->howto->type : 0;
 
   vars->relcount ++;
 
@@ -590,7 +590,7 @@ pe_ILF_make_a_symbol (pe_ILF_vars *  vars,
   /* Initialise the internal symbol structure.  */
   ent->u.syment.n_sclass	  = sclass;
   ent->u.syment.n_scnum		  = section->target_index;
-  ent->u.syment._n._n_n._n_offset = (bfd_hostptr_t) sym;
+  ent->u.syment._n._n_n._n_offset = (uintptr_t) sym;
   ent->is_sym = true;
 
   sym->symbol.the_bfd = vars->abfd;

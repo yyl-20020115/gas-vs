@@ -263,7 +263,7 @@ extern bfd * bfd_generic_openr_next_archived_file
   (bfd *, bfd *) ATTRIBUTE_HIDDEN;
 
 extern int bfd_generic_stat_arch_elt
-  (bfd *, struct stat *) ATTRIBUTE_HIDDEN;
+  (bfd *, struct _stat *) ATTRIBUTE_HIDDEN;
 
 #define _bfd_read_ar_hdr(abfd) \
 	BFD_SEND (abfd, _bfd_read_ar_hdr_fn, (abfd))
@@ -416,7 +416,7 @@ extern bfd *_bfd_vms_lib_openr_next_archived_file
 extern bfd *_bfd_vms_lib_get_elt_at_index
   (bfd *, symindex) ATTRIBUTE_HIDDEN;
 extern int _bfd_vms_lib_generic_stat_arch_elt
-  (bfd *, struct stat *) ATTRIBUTE_HIDDEN;
+  (bfd *, struct _stat *) ATTRIBUTE_HIDDEN;
 #define _bfd_vms_lib_update_armap_timestamp _bfd_bool_bfd_true
 
 /* Extra routines for VMS style archives.  */
@@ -994,7 +994,7 @@ struct bfd_iovec
   int (*bseek) (struct bfd *abfd, file_ptr offset, int whence);
   int (*bclose) (struct bfd *abfd);
   int (*bflush) (struct bfd *abfd);
-  int (*bstat) (struct bfd *abfd, struct stat *sb);
+  int (*bstat) (struct bfd *abfd, struct _stat *sb);
   /* Mmap a part of the files. ADDR, LEN, PROT, FLAGS and OFFSET are the usual
      mmap parameter, except that LEN and OFFSET do not need to be page
      aligned.  Returns (void *)-1 on failure, mmapped address on success.
@@ -1040,6 +1040,7 @@ static const char *const bfd_reloc_code_real_names[] = { "@@uninitialized@@",
   "BFD_RELOC_12_PCREL",
   "BFD_RELOC_8_PCREL",
   "BFD_RELOC_32_SECREL",
+  "BFD_RELOC_16_SECIDX",
   "BFD_RELOC_32_GOT_PCREL",
   "BFD_RELOC_16_GOT_PCREL",
   "BFD_RELOC_8_GOT_PCREL",

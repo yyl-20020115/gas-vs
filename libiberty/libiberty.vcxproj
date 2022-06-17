@@ -277,11 +277,6 @@
     <ClCompile Include="xvasprintf.c" />
     <ClCompile Include="_doprnt.c" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\libbfd\libbfd.vcxproj">
-      <Project>{0087d762-f152-4715-9aa6-68cd8e35b837}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -66,7 +66,7 @@
 static bfd_reloc_status_type
 ia64_elf_reloc (bfd *abfd ATTRIBUTE_UNUSED, arelent *reloc,
 		asymbol *sym ATTRIBUTE_UNUSED,
-		PTR data ATTRIBUTE_UNUSED, asection *input_section,
+		void *data ATTRIBUTE_UNUSED, asection *input_section,
 		bfd *output_bfd, char **error_message)
 {
   if (output_bfd)
@@ -555,11 +555,7 @@ ia64_elf_install_value (bfd_byte *hit_addr, bfd_vma v, unsigned int r_type)
   enum ia64_opnd opnd;
   const char *err;
   size_t size = 8;
-#ifdef BFD_HOST_U_64_BIT
-  BFD_HOST_U_64_BIT val = (BFD_HOST_U_64_BIT) v;
-#else
-  bfd_vma val = v;
-#endif
+  uint64_t val = v;
 
   opnd = IA64_OPND_NIL;
   switch (r_type)

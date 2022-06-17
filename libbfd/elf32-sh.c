@@ -28,7 +28,7 @@
 #include "elf/sh.h"
 #include "dwarf2.h"
 #include "libiberty.h"
-#include "../opcodes/sh-opc.h"
+#include "../libopcodes/sh-opc.h"
 
 /* All users of this file have bfd_octets_per_byte (abfd, sec) == 1.  */
 #define OCTETS_PER_BYTE(ABFD, SEC) 1

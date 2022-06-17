@@ -20,7 +20,7 @@
 
 #ifndef GNU_COFF_INTERNAL_H
 #define GNU_COFF_INTERNAL_H 1
-
+typedef unsigned long long bfd_hostptr_t;
 /* First, make "signed char" work, even on old compilers. */
 #ifndef signed
 #ifndef __STDC__

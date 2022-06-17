@@ -56,13 +56,14 @@ typedef struct external_aouthdr
 #define AOUTHDRSZ 56
 
 /********************** RELOCATION DIRECTIVES **********************/
-
+#ifndef external_reloc_defined
+#define external_reloc_defined
 struct external_reloc
   {
     unsigned char r_vaddr[4];
     unsigned char r_bits[4];
   };
-
+#endif
 #define RELOC struct external_reloc
 #define RELSZ 8
 

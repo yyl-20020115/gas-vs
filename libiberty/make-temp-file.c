@@ -83,7 +83,7 @@ try_dir (const char *dir, const char *base)
     {
       /* Check to make sure dir is actually a directory. */
 #ifdef S_ISDIR
-      struct stat s;
+      struct _stat s;
       if (stat (dir, &s))
 	return NULL;
       if (!S_ISDIR (s.st_mode))

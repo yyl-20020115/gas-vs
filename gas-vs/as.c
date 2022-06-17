@@ -1264,7 +1264,7 @@ int
 main (int argc, char ** argv)
 {
   char ** argv_orig = argv;
-  struct stat sob;
+  struct _stat sob;
 
   int macro_strip_at;
 
@@ -1318,7 +1318,7 @@ main (int argc, char ** argv)
 
       for (i = 1; i < argc; ++i)
 	{
-	  struct stat sib;
+	  struct _stat sib;
 
 	  /* Check that the input file and output file are different.  */
 	  if (stat (argv[i], &sib) == 0

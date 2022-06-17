@@ -72,7 +72,7 @@ getpwd (void)
 
   char *p = pwd;
   size_t s;
-  struct stat dotstat, pwdstat;
+  struct _stat dotstat, pwdstat;
 
   if (!p && !(errno = failure_errno))
     {

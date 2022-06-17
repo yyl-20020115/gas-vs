@@ -18,6 +18,370 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="aout-target.h" />
+    <ClInclude Include="aoutx.h" />
+    <ClInclude Include="arc-got.h" />
+    <ClInclude Include="arc-plt.h" />
+    <ClInclude Include="bfd-in.h" />
+    <ClInclude Include="bfd-in2.h" />
+    <ClInclude Include="bfd-in3.h" />
+    <ClInclude Include="bfd.h" />
+    <ClInclude Include="bfdver.h" />
+    <ClInclude Include="coff-bfd.h" />
+    <ClInclude Include="coffcode.h" />
+    <ClInclude Include="coffswap.h" />
+    <ClInclude Include="config.h" />
+    <ClInclude Include="cpu-aarch64.h" />
+    <ClInclude Include="cpu-arm.h" />
+    <ClInclude Include="cpu-h8300.h" />
+    <ClInclude Include="cpu-m68k.h" />
+    <ClInclude Include="cpu-riscv.h" />
+    <ClInclude Include="ecoff-bfd.h" />
+    <ClInclude Include="ecoffswap.h" />
+    <ClInclude Include="elf-bfd.h" />
+    <ClInclude Include="elf-hppa.h" />
+    <ClInclude Include="elf-linker-x86.h" />
+    <ClInclude Include="elf-linux-core.h" />
+    <ClInclude Include="elf-nacl.h" />
+    <ClInclude Include="elf-s390.h" />
+    <ClInclude Include="elf-vxworks.h" />
+    <ClInclude Include="elf32-arm.h" />
+    <ClInclude Include="elf32-avr.h" />
+    <ClInclude Include="elf32-bfin.h" />
+    <ClInclude Include="elf32-cr16.h" />
+    <ClInclude Include="elf32-csky.h" />
+    <ClInclude Include="elf32-dlx.h" />
+    <ClInclude Include="elf32-hppa.h" />
+    <ClInclude Include="elf32-m68hc1x.h" />
+    <ClInclude Include="elf32-m68k.h" />
+    <ClInclude Include="elf32-metag.h" />
+    <ClInclude Include="elf32-nds32.h" />
+    <ClInclude Include="elf32-nios2.h" />
+    <ClInclude Include="elf32-ppc.h" />
+    <ClInclude Include="elf32-rx.h" />
+    <ClInclude Include="elf32-score.h" />
+    <ClInclude Include="elf32-sh-relocs.h" />
+    <ClInclude Include="elf32-spu.h" />
+    <ClInclude Include="elf32-target.h" />
+    <ClInclude Include="elf32-tic6x.h" />
+    <ClInclude Include="elf32-tilegx.h" />
+    <ClInclude Include="elf32-tilepro.h" />
+    <ClInclude Include="elf32-v850.h" />
+    <ClInclude Include="elf64-hppa.h" />
+    <ClInclude Include="elf64-ppc.h" />
+    <ClInclude Include="elf64-target.h" />
+    <ClInclude Include="elf64-tilegx.h" />
+    <ClInclude Include="elfcode.h" />
+    <ClInclude Include="elfcore.h" />
+    <ClInclude Include="elfxx-aarch64.h" />
+    <ClInclude Include="elfxx-ia64.h" />
+    <ClInclude Include="elfxx-loongarch.h" />
+    <ClInclude Include="elfxx-mips.h" />
+    <ClInclude Include="elfxx-riscv.h" />
+    <ClInclude Include="elfxx-sparc.h" />
+    <ClInclude Include="elfxx-target.h" />
+    <ClInclude Include="elfxx-tilegx.h" />
+    <ClInclude Include="elfxx-x86.h" />
+    <ClInclude Include="genlink.h" />
+    <ClInclude Include="go32stub.h" />
+    <ClInclude Include="libaout.h" />
+    <ClInclude Include="libbfd-in.h" />
+    <ClInclude Include="libbfd.h" />
+    <ClInclude Include="libcoff-in.h" />
+    <ClInclude Include="libcoff.h" />
+    <ClInclude Include="libecoff.h" />
+    <ClInclude Include="libhppa.h" />
+    <ClInclude Include="libpei.h" />
+    <ClInclude Include="libxcoff.h" />
+    <ClInclude Include="mach-o.h" />
+    <ClInclude Include="netbsd.h" />
+    <ClInclude Include="ns32k.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="pef-traceback.h" />
+    <ClInclude Include="pef.h" />
+    <ClInclude Include="plugin.h" />
+    <ClInclude Include="som.h" />
+    <ClInclude Include="sysdep.h" />
+    <ClInclude Include="targmatch.h" />
+    <ClInclude Include="version.h" />
+    <ClInclude Include="vms.h" />
+    <ClInclude Include="wasm-module.h" />
+    <ClInclude Include="xcofflink.h" />
+    <ClInclude Include="xsym.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="arc-plt.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="aix5ppc-core.c" />
+    <ClCompile Include="aout-cris.c" />
+    <ClCompile Include="aout-ns32k.c" />
+    <ClCompile Include="aout32.c" />
+    <ClCompile Include="aout64.c" />
+    <ClCompile Include="archive.c" />
+    <ClCompile Include="archive64.c" />
+    <ClCompile Include="archures.c" />
+    <ClCompile Include="bfd.c" />
+    <ClCompile Include="bfdio.c" />
+    <ClCompile Include="bfdwin.c" />
+    <ClCompile Include="binary.c" />
+    <ClCompile Include="cache.c" />
+    <ClCompile Include="cf-i386lynx.c" />
+    <ClCompile Include="coff-bfd.c" />
+    <ClCompile Include="coff-i386.c" />
+    <ClCompile Include="coff-mips.c" />
+    <ClCompile Include="coff-sh.c" />
+    <ClCompile Include="coff-stgo32.c" />
+    <ClCompile Include="coff-tic30.c" />
+    <ClCompile Include="coff-tic4x.c" />
+    <ClCompile Include="coff-tic54x.c" />
+    <ClCompile Include="coff-x86_64.c" />
+    <ClCompile Include="coff-z80.c" />
+    <ClCompile Include="coff-z8k.c" />
+    <ClCompile Include="coffgen.c" />
+    <ClCompile Include="cofflink.c" />
+    <ClCompile Include="compress.c" />
+    <ClCompile Include="corefile.c" />
+    <ClCompile Include="cpu-aarch64.c" />
+    <ClCompile Include="cpu-alpha.c" />
+    <ClCompile Include="cpu-amdgcn.c" />
+    <ClCompile Include="cpu-arc.c" />
+    <ClCompile Include="cpu-arm.c" />
+    <ClCompile Include="cpu-avr.c" />
+    <ClCompile Include="cpu-bfin.c" />
+    <ClCompile Include="cpu-bpf.c" />
+    <ClCompile Include="cpu-cr16.c" />
+    <ClCompile Include="cpu-cris.c" />
+    <ClCompile Include="cpu-crx.c" />
+    <ClCompile Include="cpu-csky.c" />
+    <ClCompile Include="cpu-d10v.c" />
+    <ClCompile Include="cpu-d30v.c" />
+    <ClCompile Include="cpu-dlx.c" />
+    <ClCompile Include="cpu-epiphany.c" />
+    <ClCompile Include="cpu-fr30.c" />
+    <ClCompile Include="cpu-frv.c" />
+    <ClCompile Include="cpu-ft32.c" />
+    <ClCompile Include="cpu-h8300.c" />
+    <ClCompile Include="cpu-hppa.c" />
+    <ClCompile Include="cpu-i386.c" />
+    <ClCompile Include="cpu-ia64.c" />
+    <ClCompile Include="cpu-iamcu.c" />
+    <ClCompile Include="cpu-ip2k.c" />
+    <ClCompile Include="cpu-iq2000.c" />
+    <ClCompile Include="cpu-lm32.c" />
+    <ClCompile Include="cpu-loongarch.c" />
+    <ClCompile Include="cpu-m10200.c" />
+    <ClCompile Include="cpu-m10300.c" />
+    <ClCompile Include="cpu-m32c.c" />
+    <ClCompile Include="cpu-m32r.c" />
+    <ClCompile Include="cpu-m68hc11.c" />
+    <ClCompile Include="cpu-m68hc12.c" />
+    <ClCompile Include="cpu-m68k.c" />
+    <ClCompile Include="cpu-m9s12x.c" />
+    <ClCompile Include="cpu-m9s12xg.c" />
+    <ClCompile Include="cpu-mcore.c" />
+    <ClCompile Include="cpu-mep.c" />
+    <ClCompile Include="cpu-metag.c" />
+    <ClCompile Include="cpu-microblaze.c" />
+    <ClCompile Include="cpu-mips.c" />
+    <ClCompile Include="cpu-mmix.c" />
+    <ClCompile Include="cpu-moxie.c" />
+    <ClCompile Include="cpu-msp430.c" />
+    <ClCompile Include="cpu-mt.c" />
+    <ClCompile Include="cpu-nds32.c" />
+    <ClCompile Include="cpu-nfp.c" />
+    <ClCompile Include="cpu-nios2.c" />
+    <ClCompile Include="cpu-ns32k.c" />
+    <ClCompile Include="cpu-or1k.c" />
+    <ClCompile Include="cpu-pdp11.c" />
+    <ClCompile Include="cpu-pj.c" />
+    <ClCompile Include="cpu-powerpc.c" />
+    <ClCompile Include="cpu-pru.c" />
+    <ClCompile Include="cpu-riscv.c" />
+    <ClCompile Include="cpu-rl78.c" />
+    <ClCompile Include="cpu-rs6000.c" />
+    <ClCompile Include="cpu-rx.c" />
+    <ClCompile Include="cpu-s12z.c" />
+    <ClCompile Include="cpu-s390.c" />
+    <ClCompile Include="cpu-score.c" />
+    <ClCompile Include="cpu-sparc.c" />
+    <ClCompile Include="cpu-spu.c" />
+    <ClCompile Include="cpu-tic30.c" />
+    <ClCompile Include="cpu-tic4x.c" />
+    <ClCompile Include="cpu-tic54x.c" />
+    <ClCompile Include="cpu-tic6x.c" />
+    <ClCompile Include="cpu-tilegx.c" />
+    <ClCompile Include="cpu-tilepro.c" />
+    <ClCompile Include="cpu-v850.c" />
+    <ClCompile Include="cpu-v850_rh850.c" />
+    <ClCompile Include="cpu-vax.c" />
+    <ClCompile Include="cpu-visium.c" />
+    <ClCompile Include="cpu-wasm32.c" />
+    <ClCompile Include="cpu-xc16x.c" />
+    <ClCompile Include="cpu-xgate.c" />
+    <ClCompile Include="cpu-xstormy16.c" />
+    <ClCompile Include="cpu-xtensa.c" />
+    <ClCompile Include="cpu-z80.c" />
+    <ClCompile Include="cpu-z8k.c" />
+    <ClCompile Include="dwarf1.c" />
+    <ClCompile Include="dwarf2.c" />
+    <ClCompile Include="ecoff.c" />
+    <ClCompile Include="ecofflink.c" />
+    <ClCompile Include="elf-attrs.c" />
+    <ClCompile Include="elf-eh-frame.c" />
+    <ClCompile Include="elf-ifunc.c" />
+    <ClCompile Include="elf-m10200.c" />
+    <ClCompile Include="elf-m10300.c" />
+    <ClCompile Include="elf-nacl.c" />
+    <ClCompile Include="elf-properties.c" />
+    <ClCompile Include="elf-strtab.c" />
+    <ClCompile Include="elf-vxworks.c" />
+    <ClCompile Include="elf.c" />
+    <ClCompile Include="elf32-am33lin.c" />
+    <ClCompile Include="elf32-arc.c" />
+    <ClCompile Include="elf32-arm.c" />
+    <ClCompile Include="elf32-avr.c" />
+    <ClCompile Include="elf32-bfin.c" />
+    <ClCompile Include="elf32-cr16.c" />
+    <ClCompile Include="elf32-cris.c" />
+    <ClCompile Include="elf32-crx.c" />
+    <ClCompile Include="elf32-csky.c" />
+    <ClCompile Include="elf32-d10v.c" />
+    <ClCompile Include="elf32-d30v.c" />
+    <ClCompile Include="elf32-dlx.c" />
+    <ClCompile Include="elf32-epiphany.c" />
+    <ClCompile Include="elf32-fr30.c" />
+    <ClCompile Include="elf32-frv.c" />
+    <ClCompile Include="elf32-ft32.c" />
+    <ClCompile Include="elf32-gen.c" />
+    <ClCompile Include="elf32-h8300.c" />
+    <ClCompile Include="elf32-i386.c" />
+    <ClCompile Include="elf32-ia64.c" />
+    <ClCompile Include="elf32-ip2k.c" />
+    <ClCompile Include="elf32-iq2000.c" />
+    <ClCompile Include="elf32-lm32.c" />
+    <ClCompile Include="elf32-m32c.c" />
+    <ClCompile Include="elf32-m32r.c" />
+    <ClCompile Include="elf32-m68hc11.c" />
+    <ClCompile Include="elf32-m68hc12.c" />
+    <ClCompile Include="elf32-m68hc1x.c" />
+    <ClCompile Include="elf32-m68k.c" />
+    <ClCompile Include="elf32-mcore.c" />
+    <ClCompile Include="elf32-mep.c" />
+    <ClCompile Include="elf32-metag.c" />
+    <ClCompile Include="elf32-microblaze.c" />
+    <ClCompile Include="elf32-mips.c" />
+    <ClCompile Include="elf32-moxie.c" />
+    <ClCompile Include="elf32-msp430.c" />
+    <ClCompile Include="elf32-mt.c" />
+    <ClCompile Include="elf32-nios2.c" />
+    <ClCompile Include="elf32-or1k.c" />
+    <ClCompile Include="elf32-pj.c" />
+    <ClCompile Include="elf32-ppc.c" />
+    <ClCompile Include="elf32-pru.c" />
+    <ClCompile Include="elf32-riscv.c" />
+    <ClCompile Include="elf32-rl78.c" />
+    <ClCompile Include="elf32-rx.c" />
+    <ClCompile Include="elf32-s12z.c" />
+    <ClCompile Include="elf32-s390.c" />
+    <ClCompile Include="elf32-score.c" />
+    <ClCompile Include="elf32-score7.c" />
+    <ClCompile Include="elf32-sparc.c" />
+    <ClCompile Include="elf32-spu.c" />
+    <ClCompile Include="elf32-tic6x.c" />
+    <ClCompile Include="elf32-tilegx.c" />
+    <ClCompile Include="elf32-tilepro.c" />
+    <ClCompile Include="elf32-vax.c" />
+    <ClCompile Include="elf32-visium.c" />
+    <ClCompile Include="elf32-wasm32.c" />
+    <ClCompile Include="elf32-xc16x.c" />
+    <ClCompile Include="elf32-xgate.c" />
+    <ClCompile Include="elf32-xstormy16.c" />
+    <ClCompile Include="elf32-z80.c" />
+    <ClCompile Include="elf32.c" />
+    <ClCompile Include="elf64-bpf.c" />
+    <ClCompile Include="elf64-gen.c" />
+    <ClCompile Include="elf64-hppa.c" />
+    <ClCompile Include="elf64-ia64-vms.c" />
+    <ClCompile Include="elf64-ia64.c" />
+    <ClCompile Include="elf64-mmix.c" />
+    <ClCompile Include="elf64-nfp.c" />
+    <ClCompile Include="elf64-ppc.c" />
+    <ClCompile Include="elf64-riscv.c" />
+    <ClCompile Include="elf64-s390.c" />
+    <ClCompile Include="elf64-sparc.c" />
+    <ClCompile Include="elf64-tilegx.c" />
+    <ClCompile Include="elf64-x86-64.c" />
+    <ClCompile Include="elf64.c" />
+    <ClCompile Include="elflink.c" />
+    <ClCompile Include="elfn32-mips.c" />
+    <ClCompile Include="elfxx-aarch64.c" />
+    <ClCompile Include="elfxx-ia64.c" />
+    <ClCompile Include="elfxx-loongarch.c" />
+    <ClCompile Include="elfxx-mips.c" />
+    <ClCompile Include="elfxx-sparc.c" />
+    <ClCompile Include="elfxx-tilegx.c" />
+    <ClCompile Include="elfxx-x86.c" />
+    <ClCompile Include="format.c" />
+    <ClCompile Include="hash.c" />
+    <ClCompile Include="i386aout.c" />
+    <ClCompile Include="i386bsd.c" />
+    <ClCompile Include="i386lynx.c" />
+    <ClCompile Include="i386msdos.c" />
+    <ClCompile Include="ihex.c" />
+    <ClCompile Include="init.c" />
+    <ClCompile Include="libbfd.c" />
+    <ClCompile Include="linker.c" />
+    <ClCompile Include="mach-o-aarch64.c" />
+    <ClCompile Include="mach-o-arm.c" />
+    <ClCompile Include="mach-o-i386.c" />
+    <ClCompile Include="mach-o-x86-64.c" />
+    <ClCompile Include="mach-o.c" />
+    <ClCompile Include="merge.c" />
+    <ClCompile Include="mmo.c" />
+    <ClCompile Include="ns32knetbsd.c" />
+    <ClCompile Include="opncls.c" />
+    <ClCompile Include="pc532-mach.c" />
+    <ClCompile Include="pdp11.c" />
+    <ClCompile Include="pe-aarch64igen.c" />
+    <ClCompile Include="pe-i386.c" />
+    <ClCompile Include="pe-mcore.c" />
+    <ClCompile Include="pe-sh.c" />
+    <ClCompile Include="pe-x86_64.c" />
+    <ClCompile Include="pef.c" />
+    <ClCompile Include="pei-i386.c" />
+    <ClCompile Include="pei-ia64.c" />
+    <ClCompile Include="pei-mcore.c" />
+    <ClCompile Include="pei-sh.c" />
+    <ClCompile Include="pei-x86_64.c" />
+    <ClCompile Include="peigen.c" />
+    <ClCompile Include="pepigen.c" />
+    <ClCompile Include="pex64igen.c" />
+    <ClCompile Include="plugin.c" />
+    <ClCompile Include="ppcboot.c" />
+    <ClCompile Include="reloc.c" />
+    <ClCompile Include="reloc16.c" />
+    <ClCompile Include="section.c" />
+    <ClCompile Include="simple.c" />
+    <ClCompile Include="som.c" />
+    <ClCompile Include="srec.c" />
+    <ClCompile Include="stab-syms.c" />
+    <ClCompile Include="stabs.c" />
+    <ClCompile Include="syms.c" />
+    <ClCompile Include="targets.c" />
+    <ClCompile Include="tekhex.c" />
+    <ClCompile Include="vax1knetbsd.c" />
+    <ClCompile Include="vaxnetbsd.c" />
+    <ClCompile Include="verilog.c" />
+    <ClCompile Include="vms-alpha.c" />
+    <ClCompile Include="vms-lib.c" />
+    <ClCompile Include="vms-misc.c" />
+    <ClCompile Include="wasm-module.c" />
+    <ClCompile Include="xsym.c" />
+    <ClCompile Include="xtensa-isa.c" />
+    <ClCompile Include="xtensa-modules.c" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -86,7 +450,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>__STDC__;_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -103,7 +467,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>__STDC__;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -120,7 +484,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>__STDC__;_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -137,7 +501,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>__STDC__;_CRT_SECURE_NO_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -150,95 +514,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="bfd.h" />
-    <ClInclude Include="bfdver.h" />
-    <ClInclude Include="coff-bfd.h" />
-    <ClInclude Include="config.h" />
-    <ClInclude Include="ecoff-bfd.h" />
-    <ClInclude Include="elf-bfd.h" />
-    <ClInclude Include="elfcode.h" />
-    <ClInclude Include="elfcore.h" />
-    <ClInclude Include="elfxx-ia64.h" />
-    <ClInclude Include="elfxx-x86.h" />
-    <ClInclude Include="framework.h" />
-    <ClInclude Include="genlink.h" />
-    <ClInclude Include="libbfd.h" />
-    <ClInclude Include="libcoff.h" />
-    <ClInclude Include="libecoff.h" />
-    <ClInclude Include="libpei.h" />
-    <ClInclude Include="pef-traceback.h" />
-    <ClInclude Include="pef.h" />
-    <ClInclude Include="peicode.h" />
-    <ClInclude Include="plugin.h" />
-    <ClInclude Include="sysdep.h" />
-    <ClInclude Include="version.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="archive.c" />
-    <ClCompile Include="archive64.c" />
-    <ClCompile Include="archures.c" />
-    <ClCompile Include="bfd.c" />
-    <ClCompile Include="bfdio.c" />
-    <ClCompile Include="bfdwin.c" />
-    <ClCompile Include="binary.c" />
-    <ClCompile Include="cache.c" />
-    <ClCompile Include="coff-bfd.c" />
-    <ClCompile Include="coff-i386.c" />
-    <ClCompile Include="coff-ia64.c" />
-    <ClCompile Include="coffgen.c" />
-    <ClCompile Include="cofflink.c" />
-    <ClCompile Include="compress.c" />
-    <ClCompile Include="corefile.c" />
-    <ClCompile Include="cpu-i386.c" />
-    <ClCompile Include="cpu-ia64-opc.c" />
-    <ClCompile Include="cpu-ia64.c" />
-    <ClCompile Include="cpu-iamcu.c" />
-    <ClCompile Include="cpu-k1om.c" />
-    <ClCompile Include="cpu-l1om.c" />
-    <ClCompile Include="dwarf1.c" />
-    <ClCompile Include="dwarf2.c" />
-    <ClCompile Include="ecoff.c" />
-    <ClCompile Include="ecofflink.c" />
-    <ClCompile Include="elf-attrs.c" />
-    <ClCompile Include="elf-eh-frame.c" />
-    <ClCompile Include="elf-ifunc.c" />
-    <ClCompile Include="elf.c" />
-    <ClCompile Include="elf32-gen.c" />
-    <ClCompile Include="elf32-i386.c" />
-    <ClCompile Include="elf32.c" />
-    <ClCompile Include="elf64-gen.c" />
-    <ClCompile Include="elf64-x86-64.c" />
-    <ClCompile Include="elf64.c" />
-    <ClCompile Include="elflink.c" />
-    <ClCompile Include="elfxx-ia64.c" />
-    <ClCompile Include="elfxx-x86.c" />
-    <ClCompile Include="format.c" />
-    <ClCompile Include="hash.c" />
-    <ClCompile Include="ihex.c" />
-    <ClCompile Include="init.c" />
-    <ClCompile Include="libbfd.c" />
-    <ClCompile Include="linker.c" />
-    <ClCompile Include="merge.c" />
-    <ClCompile Include="opncls.c" />
-    <ClCompile Include="pe-i386.c" />
-    <ClCompile Include="pe-x86_64.c" />
-    <ClCompile Include="pei-i386.c" />
-    <ClCompile Include="pei-ia64.c" />
-    <ClCompile Include="pei-x86_64.c" />
-    <ClCompile Include="pex64igen.c" />
-    <ClCompile Include="peXXigenx.c" />
-    <ClCompile Include="plugin.c" />
-    <ClCompile Include="reloc.c" />
-    <ClCompile Include="section.c" />
-    <ClCompile Include="simple.c" />
-    <ClCompile Include="srec.c" />
-    <ClCompile Include="stab-syms.c" />
-    <ClCompile Include="syms.c" />
-    <ClCompile Include="targets.c" />
-    <ClCompile Include="tekhex.c" />
-    <ClCompile Include="verilog.c" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -25,7 +25,8 @@
 /* Note "coff/external.h is not used because TI adds extra fields to the structures.  */
 
 /********************** FILE HEADER **********************/
-
+#ifndef external_filehdr_defined
+#define external_filehdr_defined
 struct external_filehdr
   {
     char f_magic[2];	/* magic number			*/
@@ -37,7 +38,7 @@ struct external_filehdr
     char f_flags[2];	/* flags			*/
     char f_target_id[2];    /* magic no. (TI COFF-specific) */
   };
-
+#endif
 /* COFF0 has magic number in f_magic, and omits f_target_id from the file
    header; for later versions, f_magic is 0xC1 for COFF1 and 0xC2 for COFF2
    and the target-specific magic number is found in f_target_id */ 
@@ -47,7 +48,16 @@ struct external_filehdr
 #define TICOFF2MAGIC    0x00C2
 #define TICOFF_AOUT_MAGIC    0x0108 /* magic number in optional header */
 #define TICOFF          1 /* customize coffcode.h */
-
+//TODO: NOTICE:
+#ifndef TI_TARGET_ID
+#define TI_TARGET_ID 0
+#endif
+#ifndef TICOFF_TARGET_ARCH
+#define TICOFF_TARGET_ARCH bfd_arch_unknown
+#endif
+#ifndef OCTETS_PER_BYTE_POWER
+#define OCTETS_PER_BYTE_POWER 8
+#endif
 /* The target_id field changes depending on the particular CPU target */
 /* for COFF0, the target id appeared in f_magic, where COFFX magic is now */
 #ifndef TI_TARGET_ID
@@ -143,7 +153,7 @@ struct external_filehdr
 
 /********************** OPTIONAL HEADER **********************/
 
-
+#if 0
 typedef struct 
 {
   char 	magic[2];		/* type of file (0x108) 		*/
@@ -156,11 +166,12 @@ typedef struct
   char 	data_start[4];		/* base of data used for this file */
 }
 AOUTHDR;
-
+#endif
 
 #define AOUTHDRSZ 28
 #define AOUTSZ 28
-
+#ifndef external_scnhdr_v01_defined
+#define external_scnhdr_v01_defined
 
 /********************** SECTION HEADER **********************/
 /* COFF0, COFF1 */
@@ -178,7 +189,9 @@ struct external_scnhdr_v01 {
         char            s_reserved[1];  /* reserved                     */ 
         char            s_page[1];      /* section page number (LOAD)   */
 };
-
+#endif
+#ifndef external_scnhdr_defined
+#define external_scnhdr_defined
 /* COFF2 */
 struct external_scnhdr {
 	char		s_name[8];	/* section name			*/
@@ -194,7 +207,7 @@ struct external_scnhdr {
         char            s_reserved[2];  /* reserved                     */ 
         char            s_page[2];      /* section page number (LOAD)   */
 };
-
+#endif
 /*
  * Special section flags
  */
@@ -373,6 +386,8 @@ struct external_scnhdr {
  * grouping will have l_lnno = 0 and in place of physical address will be the
  * symbol table index of the function name.
  */
+#ifndef external_lineno_defined
+#define external_lineno_defined
 struct external_lineno {
   union {
     char l_symndx[4];	/* function name symbol index, iff l_lnno == 0*/
@@ -380,7 +395,7 @@ struct external_lineno {
   } l_addr;
   char l_lnno[2];	/* line number		*/
 };
-
+#endif
 #define	LINENO	struct external_lineno
 #define	LINESZ	6
 
@@ -396,7 +411,8 @@ struct external_lineno {
 #define E_SYMNMLEN	8	/* # characters in a symbol name	*/
 #define E_FILNMLEN	14	/* # characters in a file name		*/
 #define E_DIMNUM	4	/* # array dimensions in auxiliary entry */
-
+#ifndef external_syment_defined
+#define external_syment_defined
 struct external_syment 
 {
   union {
@@ -413,13 +429,15 @@ struct external_syment
   char e_numaux[1];
 };
 
+#endif
 
 #define N_BTMASK	(017)
 #define N_TMASK		(060)
 #define N_BTSHFT	(4)
 #define N_TSHIFT	(2)
   
-
+#ifndef external_auxent_defined
+#define external_auxent_defined
 union external_auxent {
   struct {
 	char x_tagndx[4];	/* str, un, or enum tag indx */
@@ -461,9 +479,8 @@ union external_auxent {
 	char x_tvlen[2];	/* length of .tv */
 	char x_tvran[2][2];	/* tv range */
   } x_tv;		/* info about .tv section (in auxent of symbol .tv)) */
-  
-
 };
+#endif
 
 #define	SYMENT	struct external_syment
 #define	SYMESZ	18	
@@ -533,7 +550,8 @@ struct external_reloc_v0
   char r_reserved[2];
   char r_type[2];
 };
-
+#ifndef external_reloc_defined
+#define external_reloc_defined
 struct external_reloc
 {
   char r_vaddr[4];
@@ -541,7 +559,7 @@ struct external_reloc
   char r_reserved[2]; /* extended pmad byte for COFF2 */
   char r_type[2];
 };
-
+#endif
 #define RELOC struct external_reloc
 #define RELSZ_V0 10                 /* FIXME -- coffcode.h needs fixing */
 #define RELSZ 12                    /* for COFF1/2 */

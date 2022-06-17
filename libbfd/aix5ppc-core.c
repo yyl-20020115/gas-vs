@@ -54,7 +54,7 @@ xcoff64_core_p (bfd *abfd)
   enum bfd_architecture arch;
   unsigned long mach;
   struct core_dumpxx core, *new_core_hdr;
-  struct stat statbuf;
+  struct _stat statbuf;
   asection *sec;
   struct __ld_info64 ldinfo;
   bfd_vma ld_offset;

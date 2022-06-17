@@ -499,7 +499,7 @@ mmo_init (void)
 static bfd_cleanup
 mmo_object_p (bfd *abfd)
 {
-  struct stat statbuf;
+  struct _stat statbuf;
   bfd_byte b[4];
 
   mmo_init ();
@@ -2038,7 +2038,7 @@ mmo_scan (bfd *abfd)
 	      {
 		/* This must be the last 32-bit word in an mmo file.
 		   Let's find out.  */
-		struct stat statbuf;
+		struct _stat statbuf;
 		file_ptr curpos = bfd_tell (abfd);
 
 		if (bfd_stat (abfd, &statbuf) < 0)

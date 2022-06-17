@@ -56,7 +56,7 @@ extern char *stpcpy (char *__dest, const char *__src);
 #define OPCODES_SIGLONGJMP(buf,val)	longjmp((buf), (val))
 #endif
 
-#define POISON_BFD_BOOLEAN 1
+#undef POISON_BFD_BOOLEAN 
 
 #ifndef ARCH_i386
 #define ARCH_i386

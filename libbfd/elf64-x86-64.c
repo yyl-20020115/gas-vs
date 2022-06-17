@@ -2211,16 +2211,18 @@ elf_x86_64_scan_relocs (bfd *abfd, struct bfd_link_info *info,
 	      else if (r_type != R_X86_64_PC32_BND
 		       && r_type != R_X86_64_PC64)
 		{
-		  h->pointer_equality_needed = 1;
 		  /* At run-time, R_X86_64_64 can be resolved for both
 		     x86-64 and x32. But R_X86_64_32 and R_X86_64_32S
-		     can only be resolved for x32.  */
+		     can only be resolved for x32.  Function pointer
+		     reference doesn't need PLT for pointer equality.  */
 		  if ((sec->flags & SEC_READONLY) == 0
 		      && (r_type == R_X86_64_64
 			  || (!ABI_64_P (abfd)
 			      && (r_type == R_X86_64_32
 				  || r_type == R_X86_64_32S))))
 		    func_pointer_ref = true;
+		  else
+		    h->pointer_equality_needed = 1;
 		}
 
 	      if (!func_pointer_ref)
@@ -2242,6 +2244,23 @@ elf_x86_64_scan_relocs (bfd *abfd, struct bfd_link_info *info,
 		  if (!h->def_regular
 		      || (sec->flags & (SEC_CODE | SEC_READONLY)) != 0)
 		    h->plt.refcount = 1;
+
+		  if (h->pointer_equality_needed
+		      && h->type == STT_FUNC
+		      && eh->def_protected
+		      && elf_has_indirect_extern_access (h->root.u.def.section->owner))
+		    {
+		      /* Disallow non-canonical reference to canonical
+			 protected function.  */
+		      _bfd_error_handler
+			/* xgettext:c-format */
+			(_("%pB: non-canonical reference to canonical "
+			   "protected function `%s' in %pB"),
+			 abfd, h->root.root.string,
+			 h->root.u.def.section->owner);
+		      bfd_set_error (bfd_error_bad_value);
+		      goto error_return;
+		    }
 		}
 	    }
 
@@ -5395,99 +5414,6 @@ elf64_x86_64_copy_solaris_special_section_fields (const bfd *ibfd ATTRIBUTE_UNUS
 #undef  elf_backend_strtab_flags
 #undef  elf_backend_copy_special_section_fields
 
-/* Intel L1OM support.  */
-
-static bool
-elf64_l1om_elf_object_p (bfd *abfd)
-{
-  /* Set the right machine number for an L1OM elf64 file.  */
-  bfd_default_set_arch_mach (abfd, bfd_arch_l1om, bfd_mach_l1om);
-  return true;
-}
-
-#undef  TARGET_LITTLE_SYM
-#define TARGET_LITTLE_SYM		    l1om_elf64_vec
-#undef  TARGET_LITTLE_NAME
-#define TARGET_LITTLE_NAME		    "elf64-l1om"
-#undef ELF_ARCH
-#define ELF_ARCH			    bfd_arch_l1om
-
-#undef	ELF_MACHINE_CODE
-#define ELF_MACHINE_CODE		    EM_L1OM
-
-#undef	ELF_OSABI
-
-#undef  elf64_bed
-#define elf64_bed elf64_l1om_bed
-
-#undef elf_backend_object_p
-#define elf_backend_object_p		    elf64_l1om_elf_object_p
-
-/* Restore defaults.  */
-#undef ELF_TARGET_OS
-
-#include "elf64-target.h"
-
-/* FreeBSD L1OM support.  */
-
-#undef  TARGET_LITTLE_SYM
-#define TARGET_LITTLE_SYM		    l1om_elf64_fbsd_vec
-#undef  TARGET_LITTLE_NAME
-#define TARGET_LITTLE_NAME		    "elf64-l1om-freebsd"
-
-#undef	ELF_OSABI
-#define	ELF_OSABI			    ELFOSABI_FREEBSD
-
-#undef  elf64_bed
-#define elf64_bed elf64_l1om_fbsd_bed
-
-#include "elf64-target.h"
-
-/* Intel K1OM support.  */
-
-static bool
-elf64_k1om_elf_object_p (bfd *abfd)
-{
-  /* Set the right machine number for an K1OM elf64 file.  */
-  bfd_default_set_arch_mach (abfd, bfd_arch_k1om, bfd_mach_k1om);
-  return true;
-}
-
-#undef  TARGET_LITTLE_SYM
-#define TARGET_LITTLE_SYM		    k1om_elf64_vec
-#undef  TARGET_LITTLE_NAME
-#define TARGET_LITTLE_NAME		    "elf64-k1om"
-#undef ELF_ARCH
-#define ELF_ARCH			    bfd_arch_k1om
-
-#undef	ELF_MACHINE_CODE
-#define ELF_MACHINE_CODE		    EM_K1OM
-
-#undef	ELF_OSABI
-
-#undef  elf64_bed
-#define elf64_bed elf64_k1om_bed
-
-#undef elf_backend_object_p
-#define elf_backend_object_p		    elf64_k1om_elf_object_p
-
-#include "elf64-target.h"
-
-/* FreeBSD K1OM support.  */
-
-#undef  TARGET_LITTLE_SYM
-#define TARGET_LITTLE_SYM		    k1om_elf64_fbsd_vec
-#undef  TARGET_LITTLE_NAME
-#define TARGET_LITTLE_NAME		    "elf64-k1om-freebsd"
-
-#undef	ELF_OSABI
-#define	ELF_OSABI			    ELFOSABI_FREEBSD
-
-#undef  elf64_bed
-#define elf64_bed elf64_k1om_fbsd_bed
-
-#include "elf64-target.h"
-
 /* 32bit x86-64 support.  */
 
 #undef  TARGET_LITTLE_SYM
@@ -5503,6 +5429,7 @@ elf64_k1om_elf_object_p (bfd *abfd)
 #undef	ELF_MACHINE_CODE
 #define ELF_MACHINE_CODE		    EM_X86_64
 
+#undef	ELF_TARGET_OS
 #undef	ELF_OSABI
 
 #define bfd_elf32_bfd_reloc_type_lookup	\

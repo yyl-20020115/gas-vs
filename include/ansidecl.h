@@ -255,7 +255,8 @@ So instead we use the macro below and test it against specific values.  */
 /* Useful for structures whose layout must match some binary specification
    regardless of the alignment and padding qualities of the compiler.  */
 #ifndef ATTRIBUTE_PACKED
-# define ATTRIBUTE_PACKED __attribute__ ((packed))
+#define ATTRIBUTE_PACKED
+//# define ATTRIBUTE_PACKED __attribute__ ((packed))
 #endif
 
 /* Attribute `hot' and `cold' was valid as of gcc 4.3.  */

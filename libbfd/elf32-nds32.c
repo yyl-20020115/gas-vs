@@ -30,7 +30,7 @@
 #include "opcode/nds32.h"
 #include "elf32-nds32.h"
 #include "opcode/cgen.h"
-#include "../opcodes/nds32-opc.h"
+#include "../libopcodes/nds32-opc.h"
 
 /* All users of this file have bfd_octets_per_byte (abfd, sec) == 1.  */
 #define OCTETS_PER_BYTE(ABFD, SEC) 1

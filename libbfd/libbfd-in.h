@@ -258,7 +258,7 @@ extern bfd * bfd_generic_openr_next_archived_file
   (bfd *, bfd *) ATTRIBUTE_HIDDEN;
 
 extern int bfd_generic_stat_arch_elt
-  (bfd *, struct stat *) ATTRIBUTE_HIDDEN;
+  (bfd *, struct _stat *) ATTRIBUTE_HIDDEN;
 
 #define _bfd_read_ar_hdr(abfd) \
 	BFD_SEND (abfd, _bfd_read_ar_hdr_fn, (abfd))
@@ -411,7 +411,7 @@ extern bfd *_bfd_vms_lib_openr_next_archived_file
 extern bfd *_bfd_vms_lib_get_elt_at_index
   (bfd *, symindex) ATTRIBUTE_HIDDEN;
 extern int _bfd_vms_lib_generic_stat_arch_elt
-  (bfd *, struct stat *) ATTRIBUTE_HIDDEN;
+  (bfd *, struct _stat *) ATTRIBUTE_HIDDEN;
 #define _bfd_vms_lib_update_armap_timestamp _bfd_bool_bfd_true
 
 /* Extra routines for VMS style archives.  */

@@ -41,7 +41,7 @@ extern bool _bfd_xcoff_slurp_armap (bfd *);
 extern bfd_cleanup _bfd_xcoff_archive_p (bfd *);
 extern void * _bfd_xcoff_read_ar_hdr (bfd *);
 extern bfd *_bfd_xcoff_openr_next_archived_file (bfd *, bfd *);
-extern int _bfd_xcoff_stat_arch_elt (bfd *, struct stat *);
+extern int _bfd_xcoff_stat_arch_elt (bfd *, struct _stat *);
 extern bool _bfd_xcoff_write_armap
   (bfd *, unsigned int, struct orl *, unsigned int, int);
 extern bool _bfd_xcoff_write_archive_contents (bfd *);
@@ -1769,7 +1769,7 @@ _bfd_xcoff_openr_next_archived_file (bfd *archive, bfd *last_file)
 /* Stat an element in an XCOFF archive.  */
 
 int
-_bfd_xcoff_stat_arch_elt (bfd *abfd, struct stat *s)
+_bfd_xcoff_stat_arch_elt (bfd *abfd, struct _stat *s)
 {
   if (abfd->arelt_data == NULL)
     {
@@ -1890,18 +1890,12 @@ xcoff_write_armap_old (bfd *abfd, unsigned int elength ATTRIBUTE_UNUSED,
 }
 
 static char buff20[XCOFFARMAGBIG_ELEMENT_SIZE + 1];
-#if BFD_HOST_64BIT_LONG
-#define FMT20  "%-20ld"
-#elif defined (__MSVCRT__)
-#define FMT20  "%-20I64d"
-#else
-#define FMT20  "%-20lld"
-#endif
+#define FMT20  "%-20" PRId64
 #define FMT12  "%-12d"
 #define FMT12_OCTAL  "%-12o"
 #define FMT4  "%-4d"
 #define PRINT20(d, v) \
-  sprintf (buff20, FMT20, (bfd_uint64_t)(v)), \
+  sprintf (buff20, FMT20, (uint64_t) (v)), \
   memcpy ((void *) (d), buff20, 20)
 
 #define PRINT12(d, v) \
@@ -2258,7 +2252,7 @@ xcoff_write_archive_contents_old (bfd *abfd)
       if (arch_xhdr (sub) == NULL)
 	{
 	  struct xcoff_ar_hdr *ahdrp;
-	  struct stat s;
+	  struct _stat s;
 
 	  if ((sub->flags & BFD_IN_MEMORY) != 0)
 	    {
@@ -2494,7 +2488,7 @@ xcoff_write_archive_contents_big (bfd *abfd)
       if (arch_xhdr_big (current_bfd) == NULL)
 	{
 	  struct xcoff_ar_hdr_big *ahdrp;
-	  struct stat s;
+	  struct _stat s;
 
 	  if ((current_bfd->flags & BFD_IN_MEMORY) != 0)
 	    {
@@ -2937,7 +2931,8 @@ xcoff_reloc_type_noop (bfd *input_bfd ATTRIBUTE_UNUSED,
 		       bfd_vma val ATTRIBUTE_UNUSED,
 		       bfd_vma addend ATTRIBUTE_UNUSED,
 		       bfd_vma *relocation ATTRIBUTE_UNUSED,
-		       bfd_byte *contents ATTRIBUTE_UNUSED)
+		       bfd_byte *contents ATTRIBUTE_UNUSED,
+		       struct bfd_link_info *info ATTRIBUTE_UNUSED)
 {
   return true;
 }
@@ -2952,7 +2947,8 @@ xcoff_reloc_type_fail (bfd *input_bfd,
 		       bfd_vma val ATTRIBUTE_UNUSED,
 		       bfd_vma addend ATTRIBUTE_UNUSED,
 		       bfd_vma *relocation ATTRIBUTE_UNUSED,
-		       bfd_byte *contents ATTRIBUTE_UNUSED)
+		       bfd_byte *contents ATTRIBUTE_UNUSED,
+		       struct bfd_link_info *info ATTRIBUTE_UNUSED)
 {
   _bfd_error_handler
     /* xgettext: c-format */
@@ -2972,7 +2968,8 @@ xcoff_reloc_type_pos (bfd *input_bfd ATTRIBUTE_UNUSED,
 		      bfd_vma val,
 		      bfd_vma addend,
 		      bfd_vma *relocation,
-		      bfd_byte *contents ATTRIBUTE_UNUSED)
+		      bfd_byte *contents ATTRIBUTE_UNUSED,
+		      struct bfd_link_info *info ATTRIBUTE_UNUSED)
 {
   *relocation = val + addend;
   return true;
@@ -2988,7 +2985,8 @@ xcoff_reloc_type_neg (bfd *input_bfd ATTRIBUTE_UNUSED,
 		      bfd_vma val,
 		      bfd_vma addend,
 		      bfd_vma *relocation,
-		      bfd_byte *contents ATTRIBUTE_UNUSED)
+		      bfd_byte *contents ATTRIBUTE_UNUSED,
+		      struct bfd_link_info *info ATTRIBUTE_UNUSED)
 {
   *relocation = - val - addend;
   return true;
@@ -3004,7 +3002,8 @@ xcoff_reloc_type_rel (bfd *input_bfd ATTRIBUTE_UNUSED,
 		      bfd_vma val,
 		      bfd_vma addend,
 		      bfd_vma *relocation,
-		      bfd_byte *contents ATTRIBUTE_UNUSED)
+		      bfd_byte *contents ATTRIBUTE_UNUSED,
+		      struct bfd_link_info *info ATTRIBUTE_UNUSED)
 {
   howto->pc_relative = true;
 
@@ -3027,7 +3026,8 @@ xcoff_reloc_type_toc (bfd *input_bfd,
 		      bfd_vma val,
 		      bfd_vma addend ATTRIBUTE_UNUSED,
 		      bfd_vma *relocation,
-		      bfd_byte *contents ATTRIBUTE_UNUSED)
+		      bfd_byte *contents ATTRIBUTE_UNUSED,
+		      struct bfd_link_info *info ATTRIBUTE_UNUSED)
 {
   struct xcoff_link_hash_entry *h;
 
@@ -3076,7 +3076,8 @@ xcoff_reloc_type_ba (bfd *input_bfd ATTRIBUTE_UNUSED,
 		     bfd_vma val,
 		     bfd_vma addend,
 		     bfd_vma *relocation,
-		     bfd_byte *contents ATTRIBUTE_UNUSED)
+		     bfd_byte *contents ATTRIBUTE_UNUSED,
+		     struct bfd_link_info *info ATTRIBUTE_UNUSED)
 {
   howto->src_mask &= ~3;
   howto->dst_mask = howto->src_mask;
@@ -3096,10 +3097,13 @@ xcoff_reloc_type_br (bfd *input_bfd,
 		     bfd_vma val,
 		     bfd_vma addend,
 		     bfd_vma *relocation,
-		     bfd_byte *contents)
+		     bfd_byte *contents,
+		     struct bfd_link_info *info)
 {
   struct xcoff_link_hash_entry *h;
   bfd_vma section_offset;
+  struct xcoff_stub_hash_entry *stub_entry = NULL;
+  enum xcoff_stub_type stub_type;
 
   if (0 > rel->r_symndx)
     return false;
@@ -3153,6 +3157,27 @@ xcoff_reloc_type_br (bfd *input_bfd,
       howto->complain_on_overflow = complain_overflow_dont;
     }
 
+  /* Check if a stub is needed.  */
+  stub_type = bfd_xcoff_type_of_stub (input_section, rel, val, h);
+  if (stub_type != xcoff_stub_none)
+    {
+      asection *stub_csect;
+
+      stub_entry = bfd_xcoff_get_stub_entry (input_section, h, info);
+      if (stub_entry == NULL)
+	{
+	  _bfd_error_handler (_("Unable to find the stub entry targeting %s"),
+			      h->root.root.string);
+	  bfd_set_error (bfd_error_bad_value);
+	  return false;
+	}
+
+      stub_csect = stub_entry->hcsect->root.u.def.section;
+      val = (stub_entry->stub_offset
+	     + stub_csect->output_section->vma
+	     + stub_csect->output_offset);
+    }
+
   /* The original PC-relative relocation is biased by -r_vaddr, so adding
      the value below will give the absolute target address.  */
   *relocation = val + addend + rel->r_vaddr;
@@ -3202,7 +3227,8 @@ xcoff_reloc_type_crel (bfd *input_bfd ATTRIBUTE_UNUSED,
 		       bfd_vma val ATTRIBUTE_UNUSED,
 		       bfd_vma addend,
 		       bfd_vma *relocation,
-		       bfd_byte *contents ATTRIBUTE_UNUSED)
+		       bfd_byte *contents ATTRIBUTE_UNUSED,
+		       struct bfd_link_info *info ATTRIBUTE_UNUSED)
 {
   howto->pc_relative = true;
   howto->src_mask &= ~3;
@@ -3227,7 +3253,8 @@ xcoff_reloc_type_tls (bfd *input_bfd ATTRIBUTE_UNUSED,
 		      bfd_vma val,
 		      bfd_vma addend,
 		      bfd_vma *relocation,
-		      bfd_byte *contents ATTRIBUTE_UNUSED)
+		      bfd_byte *contents ATTRIBUTE_UNUSED,
+		      struct bfd_link_info *info ATTRIBUTE_UNUSED)
 {
   struct xcoff_link_hash_entry *h;
 
@@ -3763,7 +3790,7 @@ xcoff_ppc_relocate_section (bfd *output_bfd,
       if (rel->r_type >= XCOFF_MAX_CALCULATE_RELOCATION
 	  || !((*xcoff_calculate_relocation[rel->r_type])
 	       (input_bfd, input_section, output_bfd, rel, sym, &howto, val,
-		addend, &relocation, contents)))
+		addend, &relocation, contents, info)))
 	return false;
 
       /* address */
@@ -3881,8 +3908,8 @@ _bfd_xcoff_put_ldsymbol_name (bfd *abfd ATTRIBUTE_UNUSED,
 	  ldinfo->strings = newstrings;
 	}
 
-      bfd_put_16 (ldinfo->output_bfd, (bfd_vma) (len + 1),
-		  ldinfo->strings + ldinfo->string_size);
+      ldinfo->strings[ldinfo->string_size] = ((len + 1) >> 8) & 0xff;
+      ldinfo->strings[ldinfo->string_size + 1] = ((len + 1)) & 0xff;
       strcpy (ldinfo->strings + ldinfo->string_size + 2, name);
       ldsym->_l._l_l._l_zeroes = 0;
       ldsym->_l._l_l._l_offset = ldinfo->string_size + 2;
@@ -4281,6 +4308,34 @@ HOWTO (0,			/* type */
        0xffffffff,		/* dst_mask */
        false);			/* pcrel_offset */
 
+/* Indirect call stub
+   The first word of the code must be modified by filling in
+   the correct TOC offset.  */
+
+static const unsigned long xcoff_stub_indirect_call_code[4] =
+  {
+    0x81820000,	/* lwz r12,0(r2) */
+    0x800c0000,	/* lwz r0,0(r12) */
+    0x7c0903a6,	/* mtctr r0 */
+    0x4e800420,	/* bctr */
+  };
+
+/*  Shared call stub
+    The first word of the code must be modified by filling in
+    the correct TOC offset.
+    This is exactly as the glink code but without the traceback,
+    as it won't be an independent function.  */
+
+static const unsigned long xcoff_stub_shared_call_code[6] =
+  {
+    0x81820000,	/* lwz r12,0(r2) */
+    0x90410014,	/* stw r2,20(r1) */
+    0x800c0000,	/* lwz r0,0(r12) */
+    0x804c0004,	/* lwz r2,4(r12) */
+    0x7c0903a6,	/* mtctr r0 */
+    0x4e800420,	/* bctr */
+  };
+
 /*  glink
 
    The first word of global linkage code must be modified by filling in
@@ -4497,6 +4552,14 @@ static const struct xcoff_backend_data_rec bfd_xcoff_backend_data =
     /* rtinit */
     64,				/* _xcoff_rtinit_size */
     xcoff_generate_rtinit,
+
+    /* Stub indirect call.  */
+    &xcoff_stub_indirect_call_code[0],
+    16,				/* _xcoff_stub_indirect_call_size */
+
+    /* Stub shared call.  */
+    &xcoff_stub_shared_call_code[0],
+    24,				/* _xcoff_stub_shared_call_size */
   };
 
 /* The transfer vector that leads the outside world to all of the above.  */
@@ -4679,6 +4742,14 @@ static const struct xcoff_backend_data_rec bfd_pmac_xcoff_backend_data =
     /* rtinit */
     0,				/* _xcoff_rtinit_size */
     xcoff_generate_rtinit,
+
+    /* Stub indirect call.  */
+    &xcoff_stub_indirect_call_code[0],
+    16,				/* _xcoff_stub_indirect_call_size */
+
+    /* Stub shared call.  */
+    &xcoff_stub_shared_call_code[0],
+    24,				/* _xcoff_stub_shared_call_size */
   };
 
 /* The transfer vector that leads the outside world to all of the above.  */

@@ -51,8 +51,8 @@ BUGS
 
 int fdmatch (int fd1, int fd2)
 {
-  struct stat sbuf1;
-  struct stat sbuf2;
+  struct _stat sbuf1;
+  struct _stat sbuf2;
 
   if ((fstat (fd1, &sbuf1) == 0) &&
       (fstat (fd2, &sbuf2) == 0) &&

@@ -22,7 +22,8 @@
 
 #ifndef DO_NOT_DEFINE_FILHDR
 /********************** FILE HEADER **********************/
-
+#ifndef external_filehdr_defined
+#define external_filehdr_defined 
 struct external_filehdr
   {
     char f_magic[2];	/* magic number			*/
@@ -33,14 +34,14 @@ struct external_filehdr
     char f_opthdr[2];	/* sizeof(optional hdr)		*/
     char f_flags[2];	/* flags			*/
   };
-
+#endif
 #define	FILHDR	struct external_filehdr
 #define	FILHSZ	20
 #endif
 
 #ifndef DO_NOT_DEFINE_AOUTHDR
 /********************** AOUT "OPTIONAL HEADER" **********************/
-
+#define DO_NOT_DEFINE_AOUTHDR
 typedef struct external_aouthdr
   {
     char magic[2];	/* type of file				*/
@@ -74,7 +75,8 @@ AOUTHDR64;
 
 #ifndef DO_NOT_DEFINE_SCNHDR
 /********************** SECTION HEADER **********************/
-
+#ifndef external_scnhdr_defined
+#define external_scnhdr_defined
 struct external_scnhdr
   {
     char s_name[8];	/* section name				*/
@@ -88,7 +90,7 @@ struct external_scnhdr
     char s_nlnno[2];	/* number of line number entries	*/
     char s_flags[4];	/* flags				*/
   };
-
+#endif
 #define	SCNHDR	struct external_scnhdr
 #define	SCNHSZ	40
 
@@ -113,6 +115,8 @@ struct external_scnhdr
    Line numbers are grouped on a per function basis; first entry in a function
    grouping will have l_lnno = 0 and in place of physical address will be the
    symbol table index of the function name.  */
+#ifndef external_lineno_defined
+#define external_lineno_defined
 struct external_lineno
 {
   union
@@ -123,7 +127,7 @@ struct external_lineno
 
   char l_lnno[L_LNNO_SIZE];	/* line number		*/
 };
-
+#endif
 #define	LINENO	struct external_lineno
 #define	LINESZ	(4 + L_LNNO_SIZE)
 
@@ -146,7 +150,8 @@ struct external_lineno
 #define E_FILNMLEN	14
 #endif
 #define E_DIMNUM	4	/* # array dimensions in auxiliary entry */
-
+#ifndef external_syment_defined
+#define external_syment_defined
 struct external_syment 
 {
   union
@@ -166,7 +171,7 @@ struct external_syment
   char e_sclass[1];
   char e_numaux[1];
 } ATTRIBUTE_PACKED ;
-
+#endif
 #define	SYMENT	struct external_syment
 #define	SYMESZ	18	
 
@@ -189,6 +194,8 @@ struct external_syment
 #endif /* not DO_NOT_DEFINE_SYMENT */
 
 #ifndef DO_NOT_DEFINE_AUXENT
+#ifndef external_auxent_defined
+#define external_auxent_defined
 
 union external_auxent
 {
@@ -258,7 +265,7 @@ union external_auxent
     char x_tvran[2][2];	/* tv range */
   } x_tv;		/* info about .tv section (in auxent of symbol .tv)) */
 } ATTRIBUTE_PACKED ;
-
+#endif
 #define	AUXENT	union external_auxent
 #define	AUXESZ	18
 

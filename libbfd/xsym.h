@@ -545,9 +545,7 @@ struct bfd_sym_data_struct
   bfd *sbfd;
 };
 typedef struct bfd_sym_data_struct bfd_sym_data_struct;
-#ifndef _Bool
-#define _Bool char
-#endif
+
 extern bool bfd_sym_mkobject
   (bfd *);
 extern void bfd_sym_print_symbol

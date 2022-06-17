@@ -57,7 +57,8 @@
 #define NT_FILE_ALIGNMENT    0x200  
 #define NT_DEF_RESERVE       0x100000
 #define NT_DEF_COMMIT        0x1000
-
+#ifndef external_reloc_defined
+#define external_reloc_defined
 struct external_reloc
 {
   char r_vaddr  [4];
@@ -65,7 +66,7 @@ struct external_reloc
   char r_type   [2];
   char r_offset [4];
 };
-
+#endif
 #define RELOC struct external_reloc
 #define RELSZ 14
 

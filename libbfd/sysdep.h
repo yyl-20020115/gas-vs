@@ -22,12 +22,9 @@
 #ifndef BFD_SYSDEP_H
 #define BFD_SYSDEP_H
 
-#if __bool_true_false_are_defined
-#else
-#define bool _Bool
+#ifdef PACKAGE
+#undef PACKAGE
 #endif
-
-
 #ifdef PACKAGE
 #error sysdep.h must be included in lieu of config.h
 #endif
@@ -35,7 +32,7 @@
 #include "config.h"
 #include <stdio.h>
 
-#if HAVE_SYS_TYPES_H
+#ifdef HAVE_SYS_TYPES_H
 #include <sys/types.h>
 #endif
 
@@ -43,27 +40,27 @@
 #include <stddef.h>
 #include <string.h>
 
-#if HAVE_UNISTD_H
+#ifdef HAVE_UNISTD_H
 #include <unistd.h>
 #endif
 
 #include <errno.h>
 #include <time.h>
 
-#if HAVE_SYS_RESOURCE_H
+#ifdef HAVE_SYS_RESOURCE_H
 #include <sys/resource.h>
 #endif /* HAVE_SYS_RESOURCE_H */
 
-#if USE_BINARY_FOPEN
+#ifdef USE_BINARY_FOPEN
 #include "fopen-bin.h"
 #else
 #include "fopen-same.h"
 #endif
 
-#if HAVE_FCNTL_H
+#ifdef HAVE_FCNTL_H
 #include <fcntl.h>
 #else
-#if HAVE_SYS_FILE_H
+#ifdef HAVE_SYS_FILE_H
 #include <sys/file.h>
 #endif
 #endif
@@ -102,25 +99,25 @@ extern int ffs (int);
 extern char *stpcpy (char *__dest, const char *__src);
 #endif
 
-#if HAVE_FTELLO
+#ifdef HAVE_FTELLO
 #if !HAVE_DECL_FTELLO
 extern off_t ftello (FILE *stream);
 #endif
 #endif
 
-#if HAVE_FTELLO64
+#ifdef HAVE_FTELLO64
 #if !HAVE_DECL_FTELLO64
 extern off64_t ftello64 (FILE *stream);
 #endif
 #endif
 
-#if HAVE_FSEEKO
+#ifdef HAVE_FSEEKO
 #if !HAVE_DECL_FSEEKO
 extern int fseeko (FILE *stream, off_t offset, int whence);
 #endif
 #endif
 
-#if HAVE_FSEEKO64
+#ifdef HAVE_FSEEKO64
 #if !HAVE_DECL_FSEEKO64
 extern int fseeko64 (FILE *stream, off64_t offset, int whence);
 #endif
@@ -128,7 +125,7 @@ extern int fseeko64 (FILE *stream, off64_t offset, int whence);
 
 /* Define offsetof for those systems which lack it */
 
-#if offsetof
+#ifndef offsetof
 #define offsetof(TYPE, MEMBER) ((size_t) &((TYPE *)0)->MEMBER)
 #endif
 
@@ -143,7 +140,7 @@ extern int fseeko64 (FILE *stream, off64_t offset, int whence);
 #endif
 #include <locale.h>
 
-#if ENABLE_NLS
+#ifdef ENABLE_NLS
 # include <libintl.h>
 /* Note the redefinition of gettext and ngettext here to use PACKAGE.
 
@@ -185,15 +182,20 @@ extern int fseeko64 (FILE *stream, off64_t offset, int whence);
 # define N_(String) (String)
 #endif
 
-#if HAVE_GETUID
+#ifndef HAVE_GETUID
 #define getuid() 0
 #endif
 
-#if HAVE_GETGID
+#ifndef HAVE_GETGID
 #define getgid() 0
 #endif
 
-#undef POISON_BFD_BOOLEAN
+#undef POISON_BFD_BOOLEAN 
 
+#ifndef DEBUGDIR
+#define DEBUGDIR "."
+#endif
+
+//#define COFF_WITH_PE
 
 #endif /* ! defined (BFD_SYSDEP_H) */

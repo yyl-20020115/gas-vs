@@ -16,11 +16,11 @@
 #define DEFAULT_LD_Z_SEPARATE_CODE 0
 
 /* Define if you want run-time sanity checks. */
-/* #undef ENABLE_CHECKING */
+#define ENABLE_CHECKING 1
 
 /* Define to 1 if translation of program messages to the user's native
    language is requested. */
-#define ENABLE_NLS 0
+/* #undef ENABLE_NLS */
 
 /* Define to 1 if you have the declaration of `asprintf', and to 0 if you
    don't. */
@@ -66,7 +66,7 @@
 #define HAVE_DECL_VASPRINTF 1
 
 /* Define to 1 if you have the <dlfcn.h> header file. */
-#define HAVE_DLFCN_H 0
+#undef HAVE_DLFCN_H 
 
 /* Define to 1 if you have the `fcntl' function. */
 #define HAVE_FCNTL 1
@@ -105,7 +105,7 @@
 #define HAVE_GETPAGESIZE 1
 
 /* Define to 1 if you have the `getrlimit' function. */
-#define HAVE_GETRLIMIT 0
+#undef HAVE_GETRLIMIT
 
 /* Define to 1 if you have the `getuid' function. */
 #define HAVE_GETUID 1
@@ -138,7 +138,7 @@
 #define HAVE_MEMORY_H 1
 
 /* Define to 1 if you have a working `mmap' system call. */
-#define HAVE_MMAP 0
+#undef HAVE_MMAP
 
 /* Define to 1 if you have the `mprotect' function. */
 #define HAVE_MPROTECT 1
@@ -213,10 +213,10 @@
 #define HAVE_SYS_PARAM_H 1
 
 /* Define to 1 if you have the <sys/procfs.h> header file. */
-#define HAVE_SYS_PROCFS_H 0
+#undef HAVE_SYS_PROCFS_H
 
 /* Define to 1 if you have the <sys/resource.h> header file. */
-#define HAVE_SYS_RESOURCE_H 0
+#undef HAVE_SYS_RESOURCE_H
 
 /* Define to 1 if you have the <sys/stat.h> header file. */
 #define HAVE_SYS_STAT_H 1
@@ -225,7 +225,7 @@
 #define HAVE_SYS_TYPES_H 1
 
 /* Define to 1 if you have the <unistd.h> header file. */
-#define HAVE_UNISTD_H 0
+#undef HAVE_UNISTD_H
 
 /* Define if <sys/procfs.h> has win32_pstatus_t. */
 #define HAVE_WIN32_PSTATUS_T 1
@@ -247,7 +247,7 @@
 #define PACKAGE_NAME "bfd"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "bfd 2.38"
+#define PACKAGE_STRING "bfd 2.38.50"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "bfd"
@@ -256,7 +256,7 @@
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "2.38"
+#define PACKAGE_VERSION "2.38.50"
 
 /* The size of `int', as computed by sizeof. */
 #define SIZEOF_INT 4
@@ -317,7 +317,7 @@
 
 
 /* Version number of package */
-#define VERSION "2.38"
+#define VERSION "2.38.50"
 
 /* Enable large inode numbers on Mac OS X 10.5.  */
 #ifndef _DARWIN_USE_64_BIT_INODE
@@ -342,19 +342,3 @@
 
 /* Use structured /proc on Solaris. */
 #define _STRUCTURED_PROC 1
-
-#define COFF_WITH_PE
-
-#ifndef DEBUGDIR
-#define DEBUGDIR "."
-#endif
-#ifndef LIBDIR
-#define LIBDIR "."
-#endif
-#ifndef BINDIR
-#define BINDIR "."
-#endif
-
-#ifndef MAX_PATH
-#define MAX_PATH 260
-#endif

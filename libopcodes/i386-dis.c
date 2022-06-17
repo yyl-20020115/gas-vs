@@ -9421,11 +9421,14 @@ print_insn (bfd_vma pc, instr_info *ins)
   /* The output looks better if we put 7 bytes on a line, since that
      puts most long word instructions on a single line.  Use 8 bytes
      for Intel L1OM.  */
+#if 0
   if ((ins->info->mach & bfd_mach_l1om) != 0)
     ins->info->bytes_per_line = 8;
   else
     ins->info->bytes_per_line = 7;
-
+#else
+  ins->info->bytes_per_line = 7;
+#endif
   ins->info->private_data = &priv;
   priv.max_fetched = priv.the_buffer;
   priv.insn_start = pc;

@@ -22,7 +22,9 @@
     <ClCompile Include="adler32.c" />
     <ClCompile Include="compress.c" />
     <ClCompile Include="crc32.c" />
+    <ClCompile Include="crc_folding.c" />
     <ClCompile Include="deflate.c" />
+    <ClCompile Include="deflate_medium.c" />
     <ClCompile Include="gzclose.c" />
     <ClCompile Include="gzlib.c" />
     <ClCompile Include="gzread.c" />
@@ -31,6 +33,8 @@
     <ClCompile Include="inffast.c" />
     <ClCompile Include="inflate.c" />
     <ClCompile Include="inftrees.c" />
+    <ClCompile Include="match.c" />
+    <ClCompile Include="slide_sse.c" />
     <ClCompile Include="trees.c" />
     <ClCompile Include="uncompr.c" />
     <ClCompile Include="x86.c" />

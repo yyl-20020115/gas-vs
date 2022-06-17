@@ -881,7 +881,7 @@ bfd_sym_fetch_contained_types_table_entry (bfd *abfd,
   void (*parser) (unsigned char *, size_t, bfd_sym_contained_types_table_entry *);
   unsigned long offset;
   unsigned long entry_size = 0;
-  unsigned char buf[0];
+  unsigned char buf[16];
   bfd_sym_data_struct *sdata = NULL;
 
   parser = NULL;
@@ -931,7 +931,7 @@ bfd_sym_fetch_file_references_index_table_entry (bfd *abfd,
   void (*parser) (unsigned char *, size_t, bfd_sym_file_references_index_table_entry *);
   unsigned long offset;
   unsigned long entry_size = 0;
-  unsigned char buf[0];
+  unsigned char buf[16];
   bfd_sym_data_struct *sdata = NULL;
 
   parser = NULL;
@@ -981,7 +981,7 @@ bfd_sym_fetch_constant_pool_entry (bfd *abfd,
   void (*parser) (unsigned char *, size_t, bfd_sym_constant_pool_entry *);
   unsigned long offset;
   unsigned long entry_size = 0;
-  unsigned char buf[0];
+  unsigned char buf[16];
   bfd_sym_data_struct *sdata = NULL;
 
   parser = NULL;

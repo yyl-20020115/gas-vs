@@ -1,4 +1,3 @@
-#define SELECT_VECS
 #ifdef BFD64
 #if !defined (SELECT_VECS) || defined (HAVE_aarch64_mach_o_vec)
 
@@ -132,6 +131,14 @@
 
 { "alpha*-*-*",
 &alpha_ecoff_le_vec },
+#endif
+
+
+    
+#if !defined (SELECT_VECS) || defined (HAVE_amdgcn_elf64_le_vec)
+
+{ "amdgcn-*-*",
+&amdgcn_elf64_le_vec },
 #endif
 
 
@@ -382,7 +389,6 @@
 
     
 
-#ifdef BFD64
 #if !defined (SELECT_VECS) || defined (HAVE_cris_aout_vec)
 
 { "cris-*-*", NULL },{ "crisv32-*-*",
@@ -392,7 +398,6 @@
 
 
     
-#endif
 
 #if !defined (SELECT_VECS) || defined (HAVE_crx_elf32_vec)
 
@@ -894,6 +899,7 @@
 { "i[3-7]86-*-haiku*",
 &i386_elf32_vec },
 #endif
+
 
     
 #if !defined (SELECT_VECS) || defined (HAVE_i386_pei_vec)

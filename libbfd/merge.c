@@ -24,7 +24,7 @@
    as used in ELF SHF_MERGE.  */
 
 #include "sysdep.h"
-//#include <limits.h>
+#include <limits.h>
 #include "bfd.h"
 #include "elf-bfd.h"
 #include "libbfd.h"

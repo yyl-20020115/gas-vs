@@ -22,7 +22,7 @@
 #include "sysdep.h"
 #include "bfd.h"
 #include "libbfd.h"
-#include "../opcodes/sh-opc.h"
+#include "../libopcodes/sh-opc.h"
 
 
 #define N(NUMBER, PRINT, DEFAULT, NEXT)			\

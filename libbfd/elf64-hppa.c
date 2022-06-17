@@ -2892,7 +2892,7 @@ elf_hppa_record_segment_addrs (bfd *abfd,
 static bool
 elf_hppa_final_link (bfd *abfd, struct bfd_link_info *info)
 {
-  struct stat buf;
+  struct _stat buf;
   struct elf64_hppa_link_hash_table *hppa_info = hppa_link_hash_table (info);
 
   if (hppa_info == NULL)

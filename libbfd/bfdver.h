@@ -16,7 +16,7 @@
 
    In releases, the date is not included in either version strings or
    sonames.  */
-#define BFD_VERSION_DATE 20220209
-#define BFD_VERSION 238000000
-#define BFD_VERSION_STRING  "(GNU Binutils) " "2.38"
+#define BFD_VERSION_DATE 20220527
+#define BFD_VERSION 238500000
+#define BFD_VERSION_STRING  "(GNU Binutils) " "2.38.50.20220527"
 #define REPORT_BUGS_TO "<https://sourceware.org/bugzilla/>"

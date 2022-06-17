@@ -27,20 +27,26 @@
    Any file which uses this must first include "coff/internal.h" and
    "coff/CPU.h".  The functions will then be correct for that CPU.  */
 
+#include "bfd.h"
+#include <coff/internal.h>
 #ifndef GET_FCN_LNNOPTR
 #define GET_FCN_LNNOPTR(abfd, ext) \
   H_GET_32 (abfd, ext->x_sym.x_fcnary.x_fcn.x_lnnoptr)
 #endif
+#include <coff/i386.h>
 
 #ifndef GET_FCN_ENDNDX
 #define GET_FCN_ENDNDX(abfd, ext) \
   H_GET_32 (abfd, ext->x_sym.x_fcnary.x_fcn.x_endndx)
 #endif
+#include "libcoff.h"
 
 #ifndef PUT_FCN_LNNOPTR
 #define PUT_FCN_LNNOPTR(abfd, in, ext) \
   H_PUT_32 (abfd,  in, ext->x_sym.x_fcnary.x_fcn.x_lnnoptr)
 #endif
+#include <config.h>
+#include "sysdep.h"
 #ifndef PUT_FCN_ENDNDX
 #define PUT_FCN_ENDNDX(abfd, in, ext) \
   H_PUT_32 (abfd, in, ext->x_sym.x_fcnary.x_fcn.x_endndx)

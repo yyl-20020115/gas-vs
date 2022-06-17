@@ -62,7 +62,7 @@ was made to unlink the file because it is special.
 int
 unlink_if_ordinary (const char *name)
 {
-  struct stat st;
+  struct _stat st;
 
   if (lstat (name, &st) == 0
       && (S_ISREG (st.st_mode) || S_ISLNK (st.st_mode)))

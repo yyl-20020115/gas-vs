@@ -247,7 +247,7 @@ struct external_PEI_filehdr
 
 /* 32-bit PE a.out header:  */
 
-typedef struct
+typedef struct _PEAOUTHDR
 {
   AOUTHDR standard;
 
@@ -283,7 +283,7 @@ typedef struct
 /* Like PEAOUTHDR, except that the "standard" member has no BaseOfData
    (aka data_start) member and that some of the members are 8 instead
    of just 4 bytes long.  */
-typedef struct
+typedef struct _PEPAOUTHDR
 {
 #ifdef AOUTHDRSZ64
   AOUTHDR64 standard;

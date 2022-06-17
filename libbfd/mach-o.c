@@ -4773,7 +4773,7 @@ bfd_mach_o_read_source_version (bfd *abfd, bfd_mach_o_load_command *command)
 {
   bfd_mach_o_source_version_command *cmd = &command->command.source_version;
   struct mach_o_source_version_command_external raw;
-  bfd_uint64_t ver;
+  uint64_t ver;
 
   if (command->len < sizeof (raw) + 8)
     return false;
@@ -5680,7 +5680,7 @@ bfd_mach_o_fat_openr_next_archived_file (bfd *archive, bfd *prev)
 /* Analogous to stat call.  */
 
 static int
-bfd_mach_o_fat_stat_arch_elt (bfd *abfd, struct stat *buf)
+bfd_mach_o_fat_stat_arch_elt (bfd *abfd, struct _stat *buf)
 {
   if (abfd->arelt_data == NULL)
     {

@@ -674,7 +674,7 @@ NAME (aout, some_aout_object_p) (bfd *abfd,
 #ifdef STAT_FOR_EXEC
   else
     {
-      struct stat stat_buf;
+      struct _stat stat_buf;
 
       /* The original heuristic doesn't work in some important cases.
 	The a.out file has no information about the text start

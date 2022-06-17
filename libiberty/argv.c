@@ -403,7 +403,7 @@ expandargv (int *argcp, char ***argvp)
       /* The number of options read from the response file, if any.  */
       size_t file_argc;
 #ifdef S_ISDIR
-      struct stat sb;
+      struct _stat sb;
 #endif
       /* We are only interested in options of the form "@file".  */
       filename = (*argvp)[i];

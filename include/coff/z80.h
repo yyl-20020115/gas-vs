@@ -47,7 +47,8 @@
 /* Relocation directives.  */
 
 /* This format actually has more bits than we need.  */
-
+#ifndef external_reloc_defined
+#define external_reloc_defined
 struct external_reloc
 {
   char r_vaddr[4];
@@ -56,7 +57,7 @@ struct external_reloc
   char r_type[2];
   char r_stuff[2];
 };
-
+#endif
 #define RELOC struct external_reloc
 #define RELSZ 16
 

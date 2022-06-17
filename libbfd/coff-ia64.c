@@ -29,12 +29,12 @@
 
 #define COFF_DEFAULT_SECTION_ALIGNMENT_POWER (2)
 
-   /* Windows ia64 uses 8K page size.  */
+/* Windows ia64 uses 8K page size.  */
 #define COFF_PAGE_SIZE 0x2000
 
 static reloc_howto_type howto_table[] =
 {
-  EMPTY_HOWTO(0),
+  EMPTY_HOWTO (0),
 };
 
 #define BADMAG(x) IA64BADMAG(x)
@@ -54,10 +54,10 @@ static reloc_howto_type howto_table[] =
    appear in the output .reloc section.  */
 
 static bool
-in_reloc_p(bfd* abfd ATTRIBUTE_UNUSED,
-    reloc_howto_type* howto ATTRIBUTE_UNUSED)
+in_reloc_p (bfd * abfd ATTRIBUTE_UNUSED,
+	    reloc_howto_type *howto ATTRIBUTE_UNUSED)
 {
-    return false;			/* We don't do relocs for now...  */
+  return false;			/* We don't do relocs for now...  */
 }
 #endif
 
@@ -68,76 +68,76 @@ in_reloc_p(bfd* abfd ATTRIBUTE_UNUSED,
 #include "coffcode.h"
 
 static bfd_cleanup
-ia64coff_object_p(bfd* abfd)
+ia64coff_object_p (bfd *abfd)
 {
 #ifdef COFF_IMAGE_WITH_PE
-    {
-        struct external_DOS_hdr dos_hdr;
-        struct external_PEI_IMAGE_hdr image_hdr;
-        file_ptr offset;
+  {
+    struct external_DOS_hdr dos_hdr;
+    struct external_PEI_IMAGE_hdr image_hdr;
+    file_ptr offset;
 
-        if (bfd_seek(abfd, (file_ptr)0, SEEK_SET) != 0
-            || (bfd_bread(&dos_hdr, (bfd_size_type)sizeof(dos_hdr), abfd)
-                != sizeof(dos_hdr)))
-        {
-            if (bfd_get_error() != bfd_error_system_call)
-                bfd_set_error(bfd_error_wrong_format);
-            return NULL;
-        }
+    if (bfd_seek (abfd, (file_ptr) 0, SEEK_SET) != 0
+	|| (bfd_bread (&dos_hdr, (bfd_size_type) sizeof (dos_hdr), abfd)
+	    != sizeof (dos_hdr)))
+      {
+	if (bfd_get_error () != bfd_error_system_call)
+	  bfd_set_error (bfd_error_wrong_format);
+	return NULL;
+      }
 
-        /* There are really two magic numbers involved; the magic number
-           that says this is a NT executable (PEI) and the magic number
-           that determines the architecture.  The former is IMAGE_DOS_SIGNATURE,
-           stored in the e_magic field.  The latter is stored in the
-           f_magic field.  If the NT magic number isn't valid, the
-           architecture magic number could be mimicked by some other
-           field (specifically, the number of relocs in section 3).  Since
-           this routine can only be called correctly for a PEI file, check
-           the e_magic number here, and, if it doesn't match, clobber the
-           f_magic number so that we don't get a false match.  */
-        if (H_GET_16(abfd, dos_hdr.e_magic) != IMAGE_DOS_SIGNATURE)
-        {
-            bfd_set_error(bfd_error_wrong_format);
-            return NULL;
-        }
+    /* There are really two magic numbers involved; the magic number
+       that says this is a NT executable (PEI) and the magic number
+       that determines the architecture.  The former is IMAGE_DOS_SIGNATURE,
+       stored in the e_magic field.  The latter is stored in the
+       f_magic field.  If the NT magic number isn't valid, the
+       architecture magic number could be mimicked by some other
+       field (specifically, the number of relocs in section 3).  Since
+       this routine can only be called correctly for a PEI file, check
+       the e_magic number here, and, if it doesn't match, clobber the
+       f_magic number so that we don't get a false match.  */
+    if (H_GET_16 (abfd, dos_hdr.e_magic) != IMAGE_DOS_SIGNATURE)
+      {
+	bfd_set_error (bfd_error_wrong_format);
+	return NULL;
+      }
 
-        offset = H_GET_32(abfd, dos_hdr.e_lfanew);
-        if (bfd_seek(abfd, offset, SEEK_SET) != 0
-            || (bfd_bread(&image_hdr, (bfd_size_type)sizeof(image_hdr), abfd)
-                != sizeof(image_hdr)))
-        {
-            if (bfd_get_error() != bfd_error_system_call)
-                bfd_set_error(bfd_error_wrong_format);
-            return NULL;
-        }
+    offset = H_GET_32 (abfd, dos_hdr.e_lfanew);
+    if (bfd_seek (abfd, offset, SEEK_SET) != 0
+	|| (bfd_bread (&image_hdr, (bfd_size_type) sizeof (image_hdr), abfd)
+	    != sizeof (image_hdr)))
+      {
+	if (bfd_get_error () != bfd_error_system_call)
+	  bfd_set_error (bfd_error_wrong_format);
+	return NULL;
+      }
 
-        if (H_GET_32(abfd, image_hdr.nt_signature)
-            != 0x4550)
-        {
-            bfd_set_error(bfd_error_wrong_format);
-            return NULL;
-        }
+    if (H_GET_32 (abfd, image_hdr.nt_signature)
+	!= 0x4550)
+      {
+	bfd_set_error (bfd_error_wrong_format);
+	return NULL;
+      }
 
-        /* Here is the hack.  coff_object_p wants to read filhsz bytes to
-           pick up the COFF header for PE, see "struct external_PEI_filehdr"
-           in include/coff/pe.h.  We adjust so that that will work. */
-        if (bfd_seek(abfd, offset - sizeof(dos_hdr), SEEK_SET) != 0)
-        {
-            if (bfd_get_error() != bfd_error_system_call)
-                bfd_set_error(bfd_error_wrong_format);
-            return NULL;
-        }
-    }
+    /* Here is the hack.  coff_object_p wants to read filhsz bytes to
+       pick up the COFF header for PE, see "struct external_PEI_filehdr"
+       in include/coff/pe.h.  We adjust so that that will work. */
+    if (bfd_seek (abfd, offset - sizeof (dos_hdr), SEEK_SET) != 0)
+      {
+	if (bfd_get_error () != bfd_error_system_call)
+	  bfd_set_error (bfd_error_wrong_format);
+	return NULL;
+      }
+  }
 #endif
 
-    return coff_object_p(abfd);
+  return coff_object_p (abfd);
 }
 
 const bfd_target
 #ifdef TARGET_SYM
-TARGET_SYM =
+  TARGET_SYM =
 #else
-ia64coff_vec =
+  ia64coff_vec =
 #endif
 {
 #ifdef TARGET_NAME
@@ -199,15 +199,15 @@ ia64coff_vec =
     _bfd_bool_bfd_false_error
   },
 
-  BFD_JUMP_TABLE_GENERIC(coff),
-  BFD_JUMP_TABLE_COPY(coff),
-  BFD_JUMP_TABLE_CORE(_bfd_nocore),
-  BFD_JUMP_TABLE_ARCHIVE(_bfd_archive_coff),
-  BFD_JUMP_TABLE_SYMBOLS(coff),
-  BFD_JUMP_TABLE_RELOCS(coff),
-  BFD_JUMP_TABLE_WRITE(coff),
-  BFD_JUMP_TABLE_LINK(coff),
-  BFD_JUMP_TABLE_DYNAMIC(_bfd_nodynamic),
+  BFD_JUMP_TABLE_GENERIC (coff),
+  BFD_JUMP_TABLE_COPY (coff),
+  BFD_JUMP_TABLE_CORE (_bfd_nocore),
+  BFD_JUMP_TABLE_ARCHIVE (_bfd_archive_coff),
+  BFD_JUMP_TABLE_SYMBOLS (coff),
+  BFD_JUMP_TABLE_RELOCS (coff),
+  BFD_JUMP_TABLE_WRITE (coff),
+  BFD_JUMP_TABLE_LINK (coff),
+  BFD_JUMP_TABLE_DYNAMIC (_bfd_nodynamic),
 
   NULL,
 

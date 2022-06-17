@@ -240,9 +240,9 @@ bfd_fopen (const char *filename, const char *target, const char *mode, int fd)
       return NULL;
     }
 
-#if HAVE_FDOPEN
+#ifdef HAVE_FDOPEN
   if (fd != -1)
-    nbfd->iostream = _fdopen (fd, mode);
+    nbfd->iostream = fdopen (fd, mode);
   else
 #endif
     nbfd->iostream = _bfd_real_fopen (filename, mode);
@@ -499,7 +499,7 @@ SYNOPSIS
 						 void *stream),
 			      int (*stat_func) (struct bfd *abfd,
 						void *stream,
-						struct stat *sb));
+						struct _stat *sb));
 
 DESCRIPTION
 	Create and return a BFD backed by a read-only @var{stream}.
@@ -543,7 +543,7 @@ struct opncls
   file_ptr (*pread) (struct bfd *abfd, void *stream, void *buf,
 		     file_ptr nbytes, file_ptr offset);
   int (*close) (struct bfd *abfd, void *stream);
-  int (*stat) (struct bfd *abfd, void *stream, struct stat *sb);
+  int (*stat) (struct bfd *abfd, void *stream, struct _stat *sb);
   file_ptr where;
 };
 
@@ -608,7 +608,7 @@ opncls_bflush (struct bfd *abfd ATTRIBUTE_UNUSED)
 }
 
 static int
-opncls_bstat (struct bfd *abfd, struct stat *sb)
+opncls_bstat (struct bfd *abfd, struct _stat *sb)
 {
   struct opncls *vec = (struct opncls *) abfd->iostream;
 
@@ -645,7 +645,7 @@ bfd_openr_iovec (const char *filename, const char *target,
 		 file_ptr (*pread_p) (struct bfd *, void *, void *,
 				      file_ptr, file_ptr),
 		 int (*close_p) (struct bfd *, void *),
-		 int (*stat_p) (struct bfd *, void *, struct stat *))
+		 int (*stat_p) (struct bfd *, void *, struct _stat *))
 {
   bfd *nbfd;
   const bfd_target *target_vec;
@@ -762,7 +762,7 @@ _maybe_make_executable (bfd * abfd)
   if (abfd->direction == write_direction
       && (abfd->flags & (EXEC_P | DYNAMIC)) != 0)
     {
-      struct stat buf;
+      struct _stat buf;
 
       if (stat (bfd_get_filename (abfd), &buf) == 0
 	  /* Do not attempt to change non-regular files.  This is

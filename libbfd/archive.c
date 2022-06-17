@@ -141,7 +141,7 @@ SUBSECTION
 #include "hashtab.h"
 #include "filenames.h"
 #include "bfdlink.h"
-
+#include <sys/stat.h>
 #ifndef errno
 extern int errno;
 #endif
@@ -717,17 +717,7 @@ _bfd_get_elt_at_filepos (bfd *archive, file_ptr filepos,
 	 open the external file as a bfd.  */
       bfd_set_error (bfd_error_no_error);
       n_bfd = open_nested_file (filename, archive);
-      if (n_bfd != NULL)
-	{
-	  ufile_ptr size = bfd_get_size (n_bfd);
-	  if (size != 0 && size != new_areldata->parsed_size)
-	    {
-	      bfd_set_error (bfd_error_malformed_archive);
-	      bfd_close (n_bfd);
-	      n_bfd = NULL;
-	    }
-	}
-      else
+      if (n_bfd == NULL)
 	{
 	  switch (bfd_get_error ())
 	    {
@@ -1881,7 +1871,7 @@ hpux_uid_gid_encode (char str[6], long int id)
 static struct areltdata *
 bfd_ar_hdr_from_filesystem (bfd *abfd, const char *filename, bfd *member)
 {
-  struct stat status;
+  struct _stat32 status;
   struct areltdata *ared;
   struct ar_hdr *hdr;
   size_t amt;
@@ -1964,7 +1954,7 @@ bfd_ar_hdr_from_filesystem (bfd *abfd, const char *filename, bfd *member)
 /* Analogous to stat call.  */
 
 int
-bfd_generic_stat_arch_elt (bfd *abfd, struct stat *buf)
+bfd_generic_stat_arch_elt (bfd *abfd, struct _stat *buf)
 {
   struct ar_hdr *hdr;
   char *aloser;
@@ -2512,7 +2502,7 @@ _bfd_bsd_write_armap (bfd *arch,
   gid = 0;
   if ((arch->flags & BFD_DETERMINISTIC_OUTPUT) == 0)
     {
-      struct stat statbuf;
+      struct _stat statbuf;
 
       if (stat (bfd_get_filename (arch), &statbuf) == 0)
 	bfd_ardata (arch)->armap_timestamp = (statbuf.st_mtime
@@ -2611,7 +2601,7 @@ _bfd_bsd_write_armap (bfd *arch,
 bool
 _bfd_archive_bsd_update_armap_timestamp (bfd *arch)
 {
-  struct stat archstat;
+  struct _stat archstat;
   struct ar_hdr hdr;
 
   /* If creating deterministic archives, just leave the timestamp as-is.  */

@@ -3022,7 +3022,7 @@ _bfd_ecoff_write_armap (bfd *abfd,
   unsigned int mapsize;
   file_ptr firstreal;
   struct ar_hdr hdr;
-  struct stat statbuf;
+  struct _stat statbuf;
   unsigned int i;
   bfd_byte temp[4];
   bfd_byte *hashtable;

@@ -3040,7 +3040,7 @@ tpoff (struct bfd_link_info *info, bfd_vma address)
 static bool
 elf32_hppa_final_link (bfd *abfd, struct bfd_link_info *info)
 {
-  struct stat buf;
+  struct _stat buf;
 
   /* Invoke the regular ELF linker to do all the work.  */
   if (!bfd_elf_final_link (abfd, info))

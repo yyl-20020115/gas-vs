@@ -49,6 +49,8 @@
    offset - eg the strange jump and high page addressing modes.  */
 
 #ifndef COFF_WITH_PE
+#ifndef external_reloc_defined
+#define external_reloc_defined
 struct external_reloc
 {
   char r_vaddr[4];
@@ -65,7 +67,7 @@ struct external_reloc
   char r_type[2];
 };
 #endif
-
+#endif
 #define RELOC struct external_reloc
 #ifdef COFF_WITH_PE
 #define RELSZ 10

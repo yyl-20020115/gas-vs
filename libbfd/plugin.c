@@ -24,7 +24,7 @@
 #if BFD_SUPPORTS_PLUGINS
 
 #include <assert.h>
-#if HAVE_DLFCN_H
+#ifdef HAVE_DLFCN_H
 #include <dlfcn.h>
 #elif defined (HAVE_WINDOWS_H)
 #include <windows.h>
@@ -36,9 +36,7 @@
 #include "plugin.h"
 #include "libbfd.h"
 #include "libiberty.h"
-#if !defined(_WIN32)
-#include <dirent.h>
-#endif
+//#include <dirent.h>
 
 #if !defined (HAVE_DLFCN_H) && defined (HAVE_WINDOWS_H)
 
@@ -227,7 +225,7 @@ bfd_plugin_open_input (bfd *ibfd, struct ld_plugin_input_file *file)
 	  if (errno != EMFILE)
 	    return 0;
 
-#if HAVE_GETRLIMIT
+#ifdef HAVE_GETRLIMIT
 	  struct rlimit lim;
 
 	  /* Complicated links involving lots of files and/or large
@@ -254,7 +252,7 @@ bfd_plugin_open_input (bfd *ibfd, struct ld_plugin_input_file *file)
 
   if (iobfd == ibfd)
     {
-      struct stat stat_buf;
+      struct _stat stat_buf;
 
       if (fstat (fd, &stat_buf))
 	{
@@ -352,11 +350,8 @@ try_load_plugin (const char *pname,
 
   if (plugin_list_iter)
     pname = plugin_list_iter->plugin_name;
-#ifdef _WIN32
-  plugin_handle = 0;
-#else
+
   plugin_handle = dlopen (pname, RTLD_NOW);
-#endif
   if (!plugin_handle)
     {
       /* If we are building a list of viable plugins, then
@@ -488,6 +483,12 @@ register_ld_plugin_object_p (bfd_cleanup (*object_p) (bfd *))
 {
   ld_plugin_object_p = object_p;
 }
+#ifndef LIBDIR
+#define LIBDIR "."
+#endif
+#ifndef BINDIR
+#define BINDIR "."
+#endif
 
 static void
 build_plugin_list (bfd *abfd)
@@ -498,7 +499,7 @@ build_plugin_list (bfd *abfd)
      path first, then the old one for backwards compatibility.  */
   static const char *path[]
     = { LIBDIR "/bfd-plugins", BINDIR "/../lib/bfd-plugins" };
-  struct stat last_st;
+  struct _stat last_st;
   unsigned int i;
 
   if (has_plugin_list >= 0)
@@ -515,10 +516,11 @@ build_plugin_list (bfd *abfd)
       char *plugin_dir = make_relative_prefix (plugin_program_name,
 					       BINDIR,
 					       path[i]);
+#if 0
       if (plugin_dir)
 	{
-	  struct stat st;
-#if !defined(_WIN32)
+	  struct _stat st;
+
 	  DIR *d;
 
 	  if (stat (plugin_dir, &st) == 0
@@ -543,10 +545,9 @@ build_plugin_list (bfd *abfd)
 		}
 	      closedir (d);
 	    }
-#endif
 	  free (plugin_dir);
-
 	}
+#endif
     }
 
   has_plugin_list = plugin_list != NULL;
@@ -625,7 +626,7 @@ bfd_plugin_bfd_copy_private_symbol_data (bfd *ibfd ATTRIBUTE_UNUSED,
 }
 
 static bool
-bfd_plugin_bfd_print_private_bfd_data (bfd *abfd ATTRIBUTE_UNUSED, PTR ptr ATTRIBUTE_UNUSED)
+bfd_plugin_bfd_print_private_bfd_data (bfd *abfd ATTRIBUTE_UNUSED, void *ptr ATTRIBUTE_UNUSED)
 {
   BFD_ASSERT (0);
   return true;
@@ -757,7 +758,7 @@ bfd_plugin_canonicalize_symtab (bfd *abfd,
 
 static void
 bfd_plugin_print_symbol (bfd *abfd ATTRIBUTE_UNUSED,
-			 PTR afile ATTRIBUTE_UNUSED,
+			 void *afile ATTRIBUTE_UNUSED,
 			 asymbol *symbol ATTRIBUTE_UNUSED,
 			 bfd_print_symbol_type how ATTRIBUTE_UNUSED)
 {

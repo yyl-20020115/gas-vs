@@ -440,6 +440,10 @@ struct xcoff_loader_info
 
   /* Allocated size of string table.  */
   size_t string_alc;
+
+  //TODO:NOTICE:
+  size_t ldrel_count;   
+  char* libpath;
 };
 
 /* In case we're on a 32-bit machine, construct a 64-bit "-1" value

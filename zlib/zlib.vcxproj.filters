@@ -63,6 +63,18 @@
     <ClCompile Include="zutil.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="deflate_medium.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="crc_folding.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="slide_sse.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="match.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="crc32.h">

@@ -114,10 +114,10 @@
 /* Define to 1 if you have the `strsignal' function. */
 #define HAVE_STRSIGNAL 1
 
-/* Define if <sys/stat.h> has struct stat.st_mtim.tv_nsec */
+/* Define if <sys/stat.h> has struct _stat.st_mtim.tv_nsec */
 #define HAVE_ST_MTIM_TV_NSEC 1
 
-/* Define if <sys/stat.h> has struct stat.st_mtim.tv_sec */
+/* Define if <sys/stat.h> has struct _stat.st_mtim.tv_sec */
 #define HAVE_ST_MTIM_TV_SEC 1
 
 /* Define to 1 if you have the <sys/stat.h> header file. */

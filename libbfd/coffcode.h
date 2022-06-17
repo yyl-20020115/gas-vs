@@ -359,6 +359,9 @@ CODE_FRAGMENT
 #else
 #include "coffswap.h"
 #endif
+#include <coff/pe.h>
+#include <coff/ti.h>
+#include "libbfd.h"
 
 #define STRING_SIZE_SIZE 4
 
@@ -367,6 +370,10 @@ CODE_FRAGMENT
 #define GNU_LINKONCE_WI ".gnu.linkonce.wi."
 #define GNU_LINKONCE_WT ".gnu.linkonce.wt."
 #define DOT_RELOC	".reloc"
+
+#ifndef TICOFF
+#define TICOFF
+#endif
 
 #if defined(COFF_WITH_PE) || defined(COFF_GO32_EXE) || defined(COFF_GO32)
 # define COFF_WITH_EXTENDED_RELOC_COUNTER
@@ -953,7 +960,7 @@ handle_COMDAT (bfd * abfd,
 
       bfd_coff_swap_sym_in (abfd, esym, & isym);
 
-      BFD_ASSERT (sizeof (internal_s->s_name) <= SYMNMLEN);
+      //BFD_ASSERT (sizeof (internal_s->s_name) <= SYMNMLEN);
 
       if (isym.n_scnum == section->target_index)
 	{
@@ -1054,7 +1061,7 @@ handle_COMDAT (bfd * abfd,
 				      isym.n_type, isym.n_sclass,
 				      0, isym.n_numaux, & aux);
 
-		target_name = strchr (name, '$');
+		target_name = (char*)strchr (name, '$');
 		if (target_name != NULL)
 		  {
 		    /* Gas mode.  */
@@ -1242,16 +1249,16 @@ styp_to_sec_flags (bfd *abfd,
       switch (flag)
 	{
 	case STYP_DSECT:
-	  unhandled = "STYP_DSECT";
+	  unhandled = (char*)"STYP_DSECT";
 	  break;
 	case STYP_GROUP:
-	  unhandled = "STYP_GROUP";
+	  unhandled = (char*)"STYP_GROUP";
 	  break;
 	case STYP_COPY:
-	  unhandled = "STYP_COPY";
+	  unhandled = (char*)"STYP_COPY";
 	  break;
 	case STYP_OVER:
-	  unhandled = "STYP_OVER";
+	  unhandled = (char*)"STYP_OVER";
 	  break;
 #ifdef SEC_NEVER_LOAD
 	case STYP_NOLOAD:
@@ -1265,10 +1272,10 @@ styp_to_sec_flags (bfd *abfd,
 	  /* Skip.  */
 	  break;
 	case IMAGE_SCN_LNK_OTHER:
-	  unhandled = "IMAGE_SCN_LNK_OTHER";
+	  unhandled = (char*)"IMAGE_SCN_LNK_OTHER";
 	  break;
 	case IMAGE_SCN_MEM_NOT_CACHED:
-	  unhandled = "IMAGE_SCN_MEM_NOT_CACHED";
+	  unhandled = (char*)"IMAGE_SCN_MEM_NOT_CACHED";
 	  break;
 	case IMAGE_SCN_MEM_NOT_PAGED:
 	  /* Generate a warning message rather using the 'unhandled'
@@ -1687,6 +1694,7 @@ Special entry points for gdb to swap in coff symbol table parts:
 */
 
 /* See whether the magic number matches.  */
+#define BADMAG(x) I386BADMAG(x)
 
 static bool
 coff_bad_format_hook (bfd * abfd ATTRIBUTE_UNUSED, void * filehdr)
@@ -1700,6 +1708,11 @@ coff_bad_format_hook (bfd * abfd ATTRIBUTE_UNUSED, void * filehdr)
 }
 
 #ifdef TICOFF
+//TODO: NOTICE:
+#ifndef TI_TARGET_ID
+#define TI_TARGET_ID 0
+#endif
+
 static bool
 ticoff0_bad_format_hook (bfd *abfd ATTRIBUTE_UNUSED, void * filehdr)
 {
@@ -2057,7 +2070,7 @@ coff_mkobject (bfd * abfd)
   coff_data_type *coff;
   size_t amt = sizeof (coff_data_type);
 
-  abfd->tdata.coff_obj_data = bfd_zalloc (abfd, amt);
+  abfd->tdata.coff_obj_data = (struct coff_tdata*)bfd_zalloc (abfd, amt);
   if (abfd->tdata.coff_obj_data == NULL)
     return false;
   coff = coff_data (abfd);
@@ -2761,6 +2774,7 @@ coff_set_flags (bfd * abfd,
 #endif
 
 #ifdef TICOFF_DEFAULT_MAGIC
+#include <coff/ti.h>
     case TICOFF_TARGET_ARCH:
       /* If there's no indication of which version we want, use the default.  */
       if (!abfd->xvec )
@@ -2962,7 +2976,7 @@ coff_compute_section_file_positions (bfd * abfd)
 #endif
 
 #ifdef COFF_IMAGE_WITH_PE
-  int page_size;
+  unsigned int page_size;
 
   if (coff_data (abfd)->link_info
       || (pe_data (abfd) && pe_data (abfd)->pe_opthdr.FileAlignment))
@@ -2973,22 +2987,12 @@ coff_compute_section_file_positions (bfd * abfd)
 	 This repairs 'ld -r' for arm-wince-pe target.  */
       if (page_size == 0)
 	page_size = 1;
-
-      /* PR 17512: file: 0ac816d3.  */
-      if (page_size < 0)
-	{
-	  bfd_set_error (bfd_error_file_too_big);
-	  _bfd_error_handler
-	    /* xgettext:c-format */
-	    (_("%pB: page size is too large (0x%x)"), abfd, page_size);
-	  return false;
-	}
     }
   else
     page_size = PE_DEF_FILE_ALIGNMENT;
 #else
 #ifdef COFF_PAGE_SIZE
-  int page_size = COFF_PAGE_SIZE;
+  unsigned int page_size = COFF_PAGE_SIZE;
 #endif
 #endif
 
@@ -3070,9 +3074,10 @@ coff_compute_section_file_positions (bfd * abfd)
     bfd_size_type amt;
 
 #ifdef COFF_PAGE_SIZE
-    /* Clear D_PAGED if section alignment is smaller than
-       COFF_PAGE_SIZE.  */
-   if (pe_data (abfd)->pe_opthdr.SectionAlignment < COFF_PAGE_SIZE)
+    /* Clear D_PAGED if section / file alignment aren't suitable for
+       paging at COFF_PAGE_SIZE granularity.  */
+   if (pe_data (abfd)->pe_opthdr.SectionAlignment < COFF_PAGE_SIZE
+       || page_size < COFF_PAGE_SIZE)
      abfd->flags &= ~D_PAGED;
 #endif
 
@@ -3193,7 +3198,11 @@ coff_compute_section_file_positions (bfd * abfd)
 	     padding the previous section up if necessary.  */
 	  old_sofar = sofar;
 
+#ifdef COFF_IMAGE_WITH_PE
+	  sofar = BFD_ALIGN (sofar, page_size);
+#else
 	  sofar = BFD_ALIGN (sofar, 1 << current->alignment_power);
+#endif
 
 #ifdef RS6000COFF_C
 	  /* Make sure the file offset and the vma of .text/.data are at the
@@ -3269,7 +3278,11 @@ coff_compute_section_file_positions (bfd * abfd)
       else
 	{
 	  old_sofar = sofar;
+#ifdef COFF_IMAGE_WITH_PE
+	  sofar = BFD_ALIGN (sofar, page_size);
+#else
 	  sofar = BFD_ALIGN (sofar, 1 << current->alignment_power);
+#endif
 	  align_adjust = sofar != old_sofar;
 	  current->size += sofar - old_sofar;
 	}
@@ -3843,7 +3856,7 @@ coff_write_object_contents (bfd * abfd)
       bfd_byte *b = bfd_zmalloc (fill_size);
       if (b)
 	{
-	  bfd_bwrite ((PTR)b, fill_size, abfd);
+	  bfd_bwrite (b, fill_size, abfd);
 	  free (b);
 	}
     }
@@ -4621,7 +4634,7 @@ coff_slurp_symbol_table (bfd * abfd)
 	  BFD_ASSERT (src->is_sym);
 	  dst->symbol.name = (char *) (src->u.syment._n._n_n._n_offset);
 	  /* We use the native name field to point to the cached field.  */
-	  src->u.syment._n._n_n._n_zeroes = (bfd_hostptr_t) dst;
+	  src->u.syment._n._n_n._n_zeroes = (uintptr_t) dst;
 	  dst->symbol.section = coff_section_from_bfd_index (abfd,
 						     src->u.syment.n_scnum);
 	  dst->symbol.flags = 0;
@@ -4756,6 +4769,9 @@ coff_slurp_symbol_table (bfd * abfd)
 		dst->symbol.value = src->u.syment.n_value;
 	      break;
 
+	    case C_FILE:	/* File name.  */
+	      dst->symbol.flags = BSF_FILE;
+	      /* Fall through.  */
 	    case C_MOS:		/* Member of structure.  */
 	    case C_EOS:		/* End of structure.  */
 	    case C_REGPARM:	/* Register parameter.  */
@@ -4769,11 +4785,6 @@ coff_slurp_symbol_table (bfd * abfd)
 	    case C_MOE:		/* Member of enumeration.  */
 	    case C_MOU:		/* Member of union.  */
 	    case C_UNTAG:	/* Union tag.  */
-	      dst->symbol.flags = BSF_DEBUGGING;
-	      dst->symbol.value = (src->u.syment.n_value);
-	      break;
-
-	    case C_FILE:	/* File name.  */
 	    case C_STRTAG:	/* Structure tag.  */
 #ifdef RS6000COFF_C
 	    case C_GSYM:
@@ -4791,7 +4802,7 @@ coff_slurp_symbol_table (bfd * abfd)
 	    case C_FUN:
 	    case C_ESTAT:
 #endif
-	      dst->symbol.flags = BSF_DEBUGGING;
+	      dst->symbol.flags |= BSF_DEBUGGING;
 	      dst->symbol.value = (src->u.syment.n_value);
 	      break;
 
@@ -4832,7 +4843,7 @@ coff_slurp_symbol_table (bfd * abfd)
 		 to the symbol instead of the index.  FIXME: This
 		 should use a union.  */
 	      src->u.syment.n_value
-		= (bfd_hostptr_t) (native_symbols + src->u.syment.n_value);
+		= (uintptr_t) (native_symbols + src->u.syment.n_value);
 	      dst->symbol.value = src->u.syment.n_value;
 	      src->fix_value = 1;
 	      break;
@@ -5381,7 +5392,12 @@ coff_final_link_postscript (bfd * abfd ATTRIBUTE_UNUSED,
   return true;
 }
 #endif
-
+#ifndef coff_SWAP_reloc_v0_out
+#define coff_SWAP_reloc_v0_out 0
+#endif
+#ifndef coff_SWAP_reloc_v0_in
+#define coff_SWAP_reloc_v0_in 0
+#endif
 #ifndef coff_SWAP_aux_in
 #define coff_SWAP_aux_in coff_swap_aux_in
 #endif
@@ -5402,6 +5418,12 @@ coff_final_link_postscript (bfd * abfd ATTRIBUTE_UNUSED,
 #endif
 #ifndef coff_SWAP_reloc_out
 #define coff_SWAP_reloc_out coff_swap_reloc_out
+#endif
+#ifndef coff_SWAP_reloc_v0_out
+#define coff_SWAP_reloc_v0_out coff_swap_reloc_v0_out
+#endif
+#ifndef coff_SWAP_reloc_out
+#define coff_SWAP_reloc_v0_out coff_swap_reloc_v0_out
 #endif
 #ifndef coff_SWAP_filehdr_out
 #define coff_SWAP_filehdr_out coff_swap_filehdr_out
@@ -5470,7 +5492,7 @@ static bfd_coff_backend_data ticoff0_swap_table =
 {
   coff_SWAP_aux_in, coff_SWAP_sym_in, coff_SWAP_lineno_in,
   coff_SWAP_aux_out, coff_SWAP_sym_out,
-  coff_SWAP_lineno_out, coff_swap_reloc_v0_out,
+  coff_SWAP_lineno_out, coff_SWAP_reloc_v0_out,
   coff_SWAP_filehdr_out, coff_SWAP_aouthdr_out,
   coff_SWAP_scnhdr_out,
   FILHSZ_V0, AOUTSZ, SCNHSZ_V01, SYMESZ, AUXESZ, RELSZ_V0, LINESZ, FILNMLEN,
@@ -5493,7 +5515,7 @@ static bfd_coff_backend_data ticoff0_swap_table =
 #endif
   32768,
   coff_SWAP_filehdr_in, coff_SWAP_aouthdr_in, coff_SWAP_scnhdr_in,
-  coff_swap_reloc_v0_in, ticoff0_bad_format_hook, coff_set_arch_mach_hook,
+  coff_SWAP_reloc_v0_in, ticoff0_bad_format_hook, coff_set_arch_mach_hook,
   coff_mkobject_hook, styp_to_sec_flags, coff_set_alignment_hook,
   coff_slurp_symbol_table, symname_in_debug_hook, coff_pointerize_aux_hook,
   coff_print_aux, coff_reloc16_extra_cases, coff_reloc16_estimate,

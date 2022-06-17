@@ -65,14 +65,15 @@
 #define NT_DEF_COMMIT        0x1000
 
 /* Relocation directives.  */
-
+#ifndef external_reloc_defined
+#define external_reloc_defined
 struct external_reloc
 {
   char r_vaddr[4];
   char r_symndx[4];
   char r_type[2];
 };
-
+#endif
 #define RELOC struct external_reloc
 #define RELSZ 10
 

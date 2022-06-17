@@ -21,6 +21,7 @@
 #include "aout/aout64.h"
 #include "aout/stab_gnu.h"
 #include "aout/ar.h"
+#include <sys/stat.h>
 /*#include "libaout.h"*/
 
 #ifndef SEGMENT_SIZE
@@ -176,7 +177,7 @@ MY (object_p) (bfd *abfd)
   if (exec.a_trsize + exec.a_drsize == 0
       && bfd_get_format(abfd) == bfd_object && abfd->my_archive == NULL)
     {
-      struct stat buf;
+      struct _stat buf;
 #ifndef S_IXUSR
 #define S_IXUSR 0100	/* Execute by owner.  */
 #endif

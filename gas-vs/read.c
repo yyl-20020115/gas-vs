@@ -5937,7 +5937,7 @@ s_incbin (int x ATTRIBUTE_UNUSED)
   if (binfile)
     {
       long   file_len;
-      struct stat filestat;
+      struct _stat filestat;
 
       if (fstat (_fileno (binfile), &filestat) != 0
 	  || ! S_ISREG (filestat.st_mode)

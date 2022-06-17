@@ -1258,7 +1258,7 @@ vms_lib_bflush (struct bfd *abfd ATTRIBUTE_UNUSED)
 
 static int
 vms_lib_bstat (struct bfd *abfd ATTRIBUTE_UNUSED,
-	       struct stat *sb ATTRIBUTE_UNUSED)
+	       struct _stat *sb ATTRIBUTE_UNUSED)
 {
   /* Not supported.  */
   return 0;
@@ -1564,7 +1564,7 @@ _bfd_vms_lib_openr_next_archived_file (bfd *archive,
 /* Standard function.  Just compute the length.  */
 
 int
-_bfd_vms_lib_generic_stat_arch_elt (bfd *abfd, struct stat *st)
+_bfd_vms_lib_generic_stat_arch_elt (bfd *abfd, struct _stat *st)
 {
   struct lib_tdata *tdata;
 

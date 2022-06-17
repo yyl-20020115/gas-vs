@@ -110,7 +110,7 @@ go32exe_create_stub (bfd *abfd)
   if (coff_data (abfd)->stub == NULL)
     {
       char *stub;
-      struct stat st;
+      struct _stat st;
       int f;
       unsigned char header[10];
       char magic[8];

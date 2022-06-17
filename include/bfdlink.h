@@ -126,6 +126,9 @@ struct bfd_link_hash_entry
      outside of an output section statement.  */
   unsigned int rel_from_abs : 1;
 
+  //TODO:NOTICE:
+  unsigned int ref_real;
+
   /* A union of information depending upon the type.  */
   union
     {
@@ -714,6 +717,11 @@ struct bfd_link_info
   /* The maximum cache size.  Backend can use cache_size and and
      max_cache_size to decide if keep_memory should be honored.  */
   bfd_size_type max_cache_size;
+
+  //NOTICE: fixed by yilin
+  int no_warn_rwx_segments;
+
+  int warn_execstack;
 };
 
 /* Some forward-definitions used by some callbacks.  */

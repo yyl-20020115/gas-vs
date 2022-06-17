@@ -34,7 +34,8 @@
 /* The external reloc has an offset field, because some of the reloc
    types on the z8k don't have room in the instruction for the entire
    offset - eg with segments.  */
-
+#ifndef external_reloc_defined
+#define external_reloc_defined
 struct external_reloc
 {
   char r_vaddr[4];
@@ -43,7 +44,7 @@ struct external_reloc
   char r_type[2];
   char r_stuff[2];
 };
-
+#endif
 #define RELOC struct external_reloc
 #define RELSZ 16
 

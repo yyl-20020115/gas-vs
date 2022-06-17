@@ -73,7 +73,6 @@ static reloc_howto_type mep_elf_howto_table [] =
 #undef S
 #undef U
 
-
 #define BFD_RELOC_MEP_NONE BFD_RELOC_NONE
 #if defined (__STDC__) || defined (ALMOST_STDC) || defined (HAVE_STRINGIZE)
 #define MAP(n) case BFD_RELOC_MEP_##n: type = R_MEP_##n; break

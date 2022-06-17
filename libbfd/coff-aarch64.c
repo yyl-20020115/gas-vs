@@ -52,8 +52,8 @@
 
 /* Currently we don't handle any relocations.  */
 static reloc_howto_type pe_aarch64_std_reloc_howto[] =
-  {
-
+{
+    {0}
   };
 
 #define COFF_DEFAULT_SECTION_ALIGNMENT_POWER  2

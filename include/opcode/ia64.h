@@ -29,6 +29,10 @@
 extern "C" {
 #endif
 
+#ifndef BFD_HOST_U_64_BIT
+#define BFD_HOST_U_64_BIT unsigned long long
+#endif
+
 typedef BFD_HOST_U_64_BIT ia64_insn;
 
 enum ia64_insn_type

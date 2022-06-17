@@ -1852,7 +1852,7 @@ ovl_mgr_pread (struct bfd *abfd ATTRIBUTE_UNUSED,
 static int
 ovl_mgr_stat (struct bfd *abfd ATTRIBUTE_UNUSED,
 	      void *stream,
-	      struct stat *sb)
+	      struct _stat *sb)
 {
   struct _ovl_stream *os = (struct _ovl_stream *) stream;
 

@@ -3404,7 +3404,7 @@ Implicit_Field_brall_get (const xtensa_insnbuf insn ATTRIBUTE_UNUSED)
 /* Functional units.  */
 
 static xtensa_funcUnit_internal funcUnits[] = {
-
+    {0}
 };
 
 
@@ -3425,7 +3425,7 @@ static xtensa_regfile_internal regfiles[] = {
 /* Interfaces.  */
 
 static xtensa_interface_internal interfaces[] = {
-
+    {0}
 };
 
 

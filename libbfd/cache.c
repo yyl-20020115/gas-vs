@@ -45,7 +45,7 @@ SUBSECTION
 #include "libbfd.h"
 #include "libiberty.h"
 
-#if HAVE_MMAP
+#ifdef HAVE_MMAP
 #include <sys/mman.h>
 #endif
 
@@ -92,7 +92,7 @@ bfd_cache_max_open (void)
 	 this limitation.  */
       max = 16;
 #else
-#if HAVE_GETRLIMIT
+#ifdef HAVE_GETRLIMIT
       struct rlimit rlim;
 
       if (getrlimit (RLIMIT_NOFILE, &rlim) == 0
@@ -413,14 +413,14 @@ cache_bflush (struct bfd *abfd)
 }
 
 static int
-cache_bstat (struct bfd *abfd, struct stat *sb)
+cache_bstat (struct bfd *abfd, struct _stat *sb)
 {
   int sts;
   FILE *f = bfd_cache_lookup (abfd, CACHE_NO_SEEK_ERROR);
 
   if (f == NULL)
     return -1;
-  sts = fstat (_fileno (f), sb);
+  sts = fstat (fileno (f), sb);
   if (sts < 0)
     bfd_set_error (bfd_error_system_call);
   return sts;
@@ -459,7 +459,7 @@ cache_bmmap (struct bfd *abfd ATTRIBUTE_UNUSED,
       pg_offset = offset & ~pagesize_m1;
       pg_len = (len + (offset - pg_offset) + pagesize_m1) & ~pagesize_m1;
 
-      ret = mmap (addr, pg_len, prot, flags, _fileno (f), pg_offset);
+      ret = mmap (addr, pg_len, prot, flags, fileno (f), pg_offset);
       if (ret == (void *) -1)
 	bfd_set_error (bfd_error_system_call);
       else
@@ -627,7 +627,7 @@ bfd_open_file (bfd *abfd)
 	     another BFD, we will be in deep trouble if we delete an
 	     open file.  In fact, objdump does just that if invoked with
 	     the --info option.  */
-	  struct stat s;
+	  struct _stat s;
 
 	  if (stat (bfd_get_filename (abfd), &s) == 0 && s.st_size != 0)
 	    unlink_if_ordinary (bfd_get_filename (abfd));
