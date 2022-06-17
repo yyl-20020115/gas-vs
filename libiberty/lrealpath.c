@@ -138,7 +138,7 @@ lrealpath (const char *filename)
   {
     char buf[MAX_PATH];
     char* basename;
-    DWORD len = GetFullPathName (filename, MAX_PATH, buf, &basename);
+    DWORD len = GetFullPathNameA (filename, MAX_PATH, buf, &basename);
     if (len == 0 || len > MAX_PATH - 1)
       return strdup (filename);
     else
@@ -146,7 +146,7 @@ lrealpath (const char *filename)
 	/* The file system is case-preserving but case-insensitive,
 	   Canonicalize to lowercase, using the codepage associated
 	   with the process locale.  */
-        CharLowerBuff (buf, len);
+        CharLowerBuffA (buf, len);
         return strdup (buf);
       }
   }

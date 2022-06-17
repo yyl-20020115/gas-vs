@@ -292,21 +292,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="aix5ppc-core.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="aout32.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="aout64.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="aout-cris.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="aout-ns32k.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="archive.c">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -340,31 +325,7 @@
     <ClCompile Include="coff-i386.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="coff-mips.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="coff-sh.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="coff-stgo32.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="coff-tic30.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="coff-tic4x.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="coff-tic54x.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="coff-x86_64.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="coff-z80.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="coff-z8k.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="coffgen.c">
@@ -634,19 +595,10 @@
     <ClCompile Include="ecofflink.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="elf-attrs.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="elf-eh-frame.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="elf-ifunc.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf-m10200.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf-m10300.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="elf-nacl.c">
@@ -658,64 +610,10 @@
     <ClCompile Include="elf-strtab.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="elf-vxworks.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="elf.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="elf32-am33lin.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-arc.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-arm.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-avr.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-bfin.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-cr16.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-cris.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-crx.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-csky.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-d10v.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-d30v.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-dlx.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-epiphany.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-fr30.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-frv.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-ft32.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="elf32-gen.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-h8300.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="elf32-i386.c">
@@ -724,166 +622,16 @@
     <ClCompile Include="elf32-ia64.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="elf32-ip2k.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-iq2000.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-lm32.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-m32c.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-m32r.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-m68hc11.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-m68hc12.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-m68hc1x.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-m68k.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-mcore.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-mep.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-metag.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-microblaze.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-mips.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-moxie.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-msp430.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-mt.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-nios2.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-or1k.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-pj.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-ppc.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-pru.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-riscv.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-rl78.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-rx.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-s12z.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-s390.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-score.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-score7.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-sparc.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-spu.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-tic6x.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-tilegx.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-tilepro.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-vax.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-visium.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="elf32-wasm32.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-xc16x.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-xgate.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-xstormy16.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf32-z80.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="elf32.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="elf64-bpf.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="elf64-gen.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="elf64-hppa.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf64-ia64-vms.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="elf64-ia64.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf64-mmix.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf64-nfp.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf64-ppc.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf64-riscv.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf64-s390.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf64-sparc.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elf64-tilegx.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="elf64-x86-64.c">
@@ -895,25 +643,7 @@
     <ClCompile Include="elflink.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="elfn32-mips.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elfxx-aarch64.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="elfxx-ia64.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elfxx-loongarch.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elfxx-mips.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elfxx-sparc.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="elfxx-tilegx.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="elfxx-x86.c">
@@ -925,16 +655,10 @@
     <ClCompile Include="hash.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="i386aout.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="i386bsd.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="i386lynx.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="i386msdos.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="ihex.c">
@@ -949,21 +673,6 @@
     <ClCompile Include="linker.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="mach-o-aarch64.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="mach-o-arm.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="mach-o-i386.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="mach-o-x86-64.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="mach-o.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="merge.c">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -976,12 +685,6 @@
     <ClCompile Include="opncls.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="pc532-mach.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="pdp11.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="pe-aarch64igen.c">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -989,9 +692,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="pe-mcore.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="pe-sh.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="pe-x86_64.c">
@@ -1004,12 +704,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="pei-ia64.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="pei-mcore.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="pei-sh.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="pei-x86_64.c">

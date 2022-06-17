@@ -227,7 +227,7 @@
 #define HAVE_RINDEX 1
 
 /* Define to 1 if you have the `sbrk' function. */
-#define HAVE_SBRK 1
+//#define HAVE_SBRK 1
 
 /* Define to 1 if you have the `setenv' function. */
 #define HAVE_SETENV 1
