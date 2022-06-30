@@ -145,6 +145,9 @@
     <ClCompile Include="atof-generic.c" />
     <ClCompile Include="compress-debug.c" />
     <ClCompile Include="cond.c" />
+    <ClCompile Include="config\atof-ieee.c" />
+    <ClCompile Include="config\obj-coff.c" />
+    <ClCompile Include="config\tc-i386.c" />
     <ClCompile Include="depend.c" />
     <ClCompile Include="dw2gencfi.c" />
     <ClCompile Include="dwarf2dbg.c" />

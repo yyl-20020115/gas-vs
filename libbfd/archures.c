@@ -619,176 +619,176 @@ DESCRIPTION
 .
 */
 
-extern const bfd_arch_info_type bfd_aarch64_arch;
-extern const bfd_arch_info_type bfd_alpha_arch;
-extern const bfd_arch_info_type bfd_amdgcn_arch;
-extern const bfd_arch_info_type bfd_arc_arch;
-extern const bfd_arch_info_type bfd_arm_arch;
-extern const bfd_arch_info_type bfd_avr_arch;
-extern const bfd_arch_info_type bfd_bfin_arch;
-extern const bfd_arch_info_type bfd_cr16_arch;
-extern const bfd_arch_info_type bfd_cris_arch;
-extern const bfd_arch_info_type bfd_crx_arch;
-extern const bfd_arch_info_type bfd_csky_arch;
-extern const bfd_arch_info_type bfd_d10v_arch;
-extern const bfd_arch_info_type bfd_d30v_arch;
-extern const bfd_arch_info_type bfd_dlx_arch;
-extern const bfd_arch_info_type bfd_bpf_arch;
-extern const bfd_arch_info_type bfd_epiphany_arch;
-extern const bfd_arch_info_type bfd_fr30_arch;
-extern const bfd_arch_info_type bfd_frv_arch;
-extern const bfd_arch_info_type bfd_h8300_arch;
-extern const bfd_arch_info_type bfd_hppa_arch;
+//extern const bfd_arch_info_type bfd_aarch64_arch;
+//extern const bfd_arch_info_type bfd_alpha_arch;
+//extern const bfd_arch_info_type bfd_amdgcn_arch;
+//extern const bfd_arch_info_type bfd_arc_arch;
+//extern const bfd_arch_info_type bfd_arm_arch;
+//extern const bfd_arch_info_type bfd_avr_arch;
+//extern const bfd_arch_info_type bfd_bfin_arch;
+//extern const bfd_arch_info_type bfd_cr16_arch;
+//extern const bfd_arch_info_type bfd_cris_arch;
+//extern const bfd_arch_info_type bfd_crx_arch;
+//extern const bfd_arch_info_type bfd_csky_arch;
+//extern const bfd_arch_info_type bfd_d10v_arch;
+//extern const bfd_arch_info_type bfd_d30v_arch;
+//extern const bfd_arch_info_type bfd_dlx_arch;
+//extern const bfd_arch_info_type bfd_bpf_arch;
+//extern const bfd_arch_info_type bfd_epiphany_arch;
+//extern const bfd_arch_info_type bfd_fr30_arch;
+//extern const bfd_arch_info_type bfd_frv_arch;
+//extern const bfd_arch_info_type bfd_h8300_arch;
+//extern const bfd_arch_info_type bfd_hppa_arch;
 extern const bfd_arch_info_type bfd_i386_arch;
-extern const bfd_arch_info_type bfd_iamcu_arch;
-extern const bfd_arch_info_type bfd_ia64_arch;
-extern const bfd_arch_info_type bfd_ip2k_arch;
-extern const bfd_arch_info_type bfd_iq2000_arch;
-extern const bfd_arch_info_type bfd_lm32_arch;
-extern const bfd_arch_info_type bfd_loongarch_arch;
-extern const bfd_arch_info_type bfd_m32c_arch;
-extern const bfd_arch_info_type bfd_m32r_arch;
-extern const bfd_arch_info_type bfd_m68hc11_arch;
-extern const bfd_arch_info_type bfd_m68hc12_arch;
-extern const bfd_arch_info_type bfd_m9s12x_arch;
-extern const bfd_arch_info_type bfd_m9s12xg_arch;
-extern const bfd_arch_info_type bfd_s12z_arch;
-extern const bfd_arch_info_type bfd_m68k_arch;
-extern const bfd_arch_info_type bfd_mcore_arch;
-extern const bfd_arch_info_type bfd_mep_arch;
-extern const bfd_arch_info_type bfd_metag_arch;
-extern const bfd_arch_info_type bfd_mips_arch;
-extern const bfd_arch_info_type bfd_microblaze_arch;
-extern const bfd_arch_info_type bfd_mmix_arch;
-extern const bfd_arch_info_type bfd_mn10200_arch;
-extern const bfd_arch_info_type bfd_mn10300_arch;
-extern const bfd_arch_info_type bfd_moxie_arch;
-extern const bfd_arch_info_type bfd_ft32_arch;
-extern const bfd_arch_info_type bfd_msp430_arch;
-extern const bfd_arch_info_type bfd_mt_arch;
-extern const bfd_arch_info_type bfd_nds32_arch;
-extern const bfd_arch_info_type bfd_nfp_arch;
-extern const bfd_arch_info_type bfd_nios2_arch;
-extern const bfd_arch_info_type bfd_ns32k_arch;
-extern const bfd_arch_info_type bfd_or1k_arch;
-extern const bfd_arch_info_type bfd_pdp11_arch;
-extern const bfd_arch_info_type bfd_pj_arch;
-extern const bfd_arch_info_type bfd_powerpc_archs[];
-#define bfd_powerpc_arch bfd_powerpc_archs[0]
-extern const bfd_arch_info_type bfd_pru_arch;
-extern const bfd_arch_info_type bfd_riscv_arch;
-extern const bfd_arch_info_type bfd_rs6000_arch;
-extern const bfd_arch_info_type bfd_rl78_arch;
-extern const bfd_arch_info_type bfd_rx_arch;
-extern const bfd_arch_info_type bfd_s390_arch;
-extern const bfd_arch_info_type bfd_score_arch;
-extern const bfd_arch_info_type bfd_sh_arch;
-extern const bfd_arch_info_type bfd_sparc_arch;
-extern const bfd_arch_info_type bfd_spu_arch;
-extern const bfd_arch_info_type bfd_tic30_arch;
-extern const bfd_arch_info_type bfd_tic4x_arch;
-extern const bfd_arch_info_type bfd_tic54x_arch;
-extern const bfd_arch_info_type bfd_tic6x_arch;
-extern const bfd_arch_info_type bfd_tilegx_arch;
-extern const bfd_arch_info_type bfd_tilepro_arch;
-extern const bfd_arch_info_type bfd_v850_arch;
-extern const bfd_arch_info_type bfd_v850_rh850_arch;
-extern const bfd_arch_info_type bfd_vax_arch;
-extern const bfd_arch_info_type bfd_visium_arch;
-extern const bfd_arch_info_type bfd_wasm32_arch;
-extern const bfd_arch_info_type bfd_xstormy16_arch;
-extern const bfd_arch_info_type bfd_xtensa_arch;
-extern const bfd_arch_info_type bfd_xc16x_arch;
-extern const bfd_arch_info_type bfd_xgate_arch;
-extern const bfd_arch_info_type bfd_z80_arch;
-extern const bfd_arch_info_type bfd_z8k_arch;
+//extern const bfd_arch_info_type bfd_iamcu_arch;
+//extern const bfd_arch_info_type bfd_ia64_arch;
+//extern const bfd_arch_info_type bfd_ip2k_arch;
+//extern const bfd_arch_info_type bfd_iq2000_arch;
+//extern const bfd_arch_info_type bfd_lm32_arch;
+//extern const bfd_arch_info_type bfd_loongarch_arch;
+//extern const bfd_arch_info_type bfd_m32c_arch;
+//extern const bfd_arch_info_type bfd_m32r_arch;
+//extern const bfd_arch_info_type bfd_m68hc11_arch;
+//extern const bfd_arch_info_type bfd_m68hc12_arch;
+//extern const bfd_arch_info_type bfd_m9s12x_arch;
+//extern const bfd_arch_info_type bfd_m9s12xg_arch;
+//extern const bfd_arch_info_type bfd_s12z_arch;
+//extern const bfd_arch_info_type bfd_m68k_arch;
+//extern const bfd_arch_info_type bfd_mcore_arch;
+//extern const bfd_arch_info_type bfd_mep_arch;
+//extern const bfd_arch_info_type bfd_metag_arch;
+//extern const bfd_arch_info_type bfd_mips_arch;
+//extern const bfd_arch_info_type bfd_microblaze_arch;
+//extern const bfd_arch_info_type bfd_mmix_arch;
+//extern const bfd_arch_info_type bfd_mn10200_arch;
+//extern const bfd_arch_info_type bfd_mn10300_arch;
+//extern const bfd_arch_info_type bfd_moxie_arch;
+//extern const bfd_arch_info_type bfd_ft32_arch;
+//extern const bfd_arch_info_type bfd_msp430_arch;
+//extern const bfd_arch_info_type bfd_mt_arch;
+//extern const bfd_arch_info_type bfd_nds32_arch;
+//extern const bfd_arch_info_type bfd_nfp_arch;
+//extern const bfd_arch_info_type bfd_nios2_arch;
+//extern const bfd_arch_info_type bfd_ns32k_arch;
+//extern const bfd_arch_info_type bfd_or1k_arch;
+//extern const bfd_arch_info_type bfd_pdp11_arch;
+//extern const bfd_arch_info_type bfd_pj_arch;
+//extern const bfd_arch_info_type bfd_powerpc_archs[];
+//#define bfd_powerpc_arch bfd_powerpc_archs[0]
+//extern const bfd_arch_info_type bfd_pru_arch;
+//extern const bfd_arch_info_type bfd_riscv_arch;
+//extern const bfd_arch_info_type bfd_rs6000_arch;
+//extern const bfd_arch_info_type bfd_rl78_arch;
+//extern const bfd_arch_info_type bfd_rx_arch;
+//extern const bfd_arch_info_type bfd_s390_arch;
+//extern const bfd_arch_info_type bfd_score_arch;
+//extern const bfd_arch_info_type bfd_sh_arch;
+//extern const bfd_arch_info_type bfd_sparc_arch;
+//extern const bfd_arch_info_type bfd_spu_arch;
+//extern const bfd_arch_info_type bfd_tic30_arch;
+//extern const bfd_arch_info_type bfd_tic4x_arch;
+//extern const bfd_arch_info_type bfd_tic54x_arch;
+//extern const bfd_arch_info_type bfd_tic6x_arch;
+//extern const bfd_arch_info_type bfd_tilegx_arch;
+//extern const bfd_arch_info_type bfd_tilepro_arch;
+//extern const bfd_arch_info_type bfd_v850_arch;
+//extern const bfd_arch_info_type bfd_v850_rh850_arch;
+//extern const bfd_arch_info_type bfd_vax_arch;
+//extern const bfd_arch_info_type bfd_visium_arch;
+//extern const bfd_arch_info_type bfd_wasm32_arch;
+//extern const bfd_arch_info_type bfd_xstormy16_arch;
+//extern const bfd_arch_info_type bfd_xtensa_arch;
+//extern const bfd_arch_info_type bfd_xc16x_arch;
+//extern const bfd_arch_info_type bfd_xgate_arch;
+//extern const bfd_arch_info_type bfd_z80_arch;
+//extern const bfd_arch_info_type bfd_z8k_arch;
 
 static const bfd_arch_info_type * const bfd_archures_list[] =
   {
 #ifdef SELECT_ARCHITECTURES
     SELECT_ARCHITECTURES,
 #else
-    &bfd_aarch64_arch,
-    &bfd_alpha_arch,
-    &bfd_amdgcn_arch,
-    &bfd_arc_arch,
-    &bfd_arm_arch,
-    &bfd_avr_arch,
-    &bfd_bfin_arch,
-    &bfd_cr16_arch,
-    &bfd_cris_arch,
-    &bfd_crx_arch,
-    &bfd_csky_arch,
-    &bfd_d10v_arch,
-    &bfd_d30v_arch,
-    &bfd_dlx_arch,
-    &bfd_bpf_arch,
-    &bfd_epiphany_arch,
-    &bfd_fr30_arch,
-    &bfd_frv_arch,
-    &bfd_h8300_arch,
-    &bfd_hppa_arch,
+    //&bfd_aarch64_arch,
+    //&bfd_alpha_arch,
+    //&bfd_amdgcn_arch,
+    //&bfd_arc_arch,
+    //&bfd_arm_arch,
+    //&bfd_avr_arch,
+    //&bfd_bfin_arch,
+    //&bfd_cr16_arch,
+    //&bfd_cris_arch,
+    //&bfd_crx_arch,
+    //&bfd_csky_arch,
+    //&bfd_d10v_arch,
+    //&bfd_d30v_arch,
+    //&bfd_dlx_arch,
+    //&bfd_bpf_arch,
+    //&bfd_epiphany_arch,
+    //&bfd_fr30_arch,
+    //&bfd_frv_arch,
+    //&bfd_h8300_arch,
+    //&bfd_hppa_arch,
     &bfd_i386_arch,
-    &bfd_iamcu_arch,
-    &bfd_ia64_arch,
-    &bfd_ip2k_arch,
-    &bfd_iq2000_arch,
-    &bfd_lm32_arch,
-    &bfd_loongarch_arch,
-    &bfd_m32c_arch,
-    &bfd_m32r_arch,
-    &bfd_m68hc11_arch,
-    &bfd_m68hc12_arch,
-    &bfd_m9s12x_arch,
-    &bfd_m9s12xg_arch,
-    &bfd_s12z_arch,
-    &bfd_m68k_arch,
-    &bfd_mcore_arch,
-    &bfd_mep_arch,
-    &bfd_metag_arch,
-    &bfd_microblaze_arch,
-    &bfd_mips_arch,
-    &bfd_mmix_arch,
-    &bfd_mn10200_arch,
-    &bfd_mn10300_arch,
-    &bfd_moxie_arch,
-    &bfd_ft32_arch,
-    &bfd_msp430_arch,
-    &bfd_mt_arch,
-    &bfd_nds32_arch,
-    &bfd_nfp_arch,
-    &bfd_nios2_arch,
-    &bfd_ns32k_arch,
-    &bfd_or1k_arch,
-    &bfd_pdp11_arch,
-    &bfd_powerpc_arch,
-    &bfd_pru_arch,
-    &bfd_riscv_arch,
-    &bfd_rl78_arch,
-    &bfd_rs6000_arch,
-    &bfd_rx_arch,
-    &bfd_s390_arch,
-    &bfd_score_arch,
-    &bfd_sh_arch,
-    &bfd_sparc_arch,
-    &bfd_spu_arch,
-    &bfd_tic30_arch,
-    &bfd_tic4x_arch,
-    &bfd_tic54x_arch,
-    &bfd_tic6x_arch,
-    &bfd_tilegx_arch,
-    &bfd_tilepro_arch,
-    &bfd_v850_arch,
-    &bfd_v850_rh850_arch,
-    &bfd_vax_arch,
-    &bfd_visium_arch,
-    &bfd_wasm32_arch,
-    &bfd_xstormy16_arch,
-    &bfd_xtensa_arch,
-    &bfd_xc16x_arch,
-    &bfd_xgate_arch,
-    &bfd_z80_arch,
-    &bfd_z8k_arch,
+    //&bfd_iamcu_arch,
+    //&bfd_ia64_arch,
+    //&bfd_ip2k_arch,
+    //&bfd_iq2000_arch,
+    //&bfd_lm32_arch,
+    //&bfd_loongarch_arch,
+    //&bfd_m32c_arch,
+    //&bfd_m32r_arch,
+    //&bfd_m68hc11_arch,
+    //&bfd_m68hc12_arch,
+    //&bfd_m9s12x_arch,
+    //&bfd_m9s12xg_arch,
+    //&bfd_s12z_arch,
+    //&bfd_m68k_arch,
+    //&bfd_mcore_arch,
+    //&bfd_mep_arch,
+    //&bfd_metag_arch,
+    //&bfd_microblaze_arch,
+    //&bfd_mips_arch,
+    //&bfd_mmix_arch,
+    //&bfd_mn10200_arch,
+    //&bfd_mn10300_arch,
+    //&bfd_moxie_arch,
+    //&bfd_ft32_arch,
+    //&bfd_msp430_arch,
+    //&bfd_mt_arch,
+    //&bfd_nds32_arch,
+    //&bfd_nfp_arch,
+    //&bfd_nios2_arch,
+    ////&bfd_ns32k_arch,
+    //&bfd_or1k_arch,
+    //&bfd_pdp11_arch,
+    //&bfd_powerpc_arch,
+    //&bfd_pru_arch,
+    //&bfd_riscv_arch,
+    //&bfd_rl78_arch,
+    //&bfd_rs6000_arch,
+    //&bfd_rx_arch,
+    //&bfd_s390_arch,
+    //&bfd_score_arch,
+    ////&bfd_sh_arch,
+    //&bfd_sparc_arch,
+    //&bfd_spu_arch,
+    //&bfd_tic30_arch,
+    //&bfd_tic4x_arch,
+    //&bfd_tic54x_arch,
+    //&bfd_tic6x_arch,
+    //&bfd_tilegx_arch,
+    //&bfd_tilepro_arch,
+    //&bfd_v850_arch,
+    //&bfd_v850_rh850_arch,
+    //&bfd_vax_arch,
+    //&bfd_visium_arch,
+    //&bfd_wasm32_arch,
+    //&bfd_xstormy16_arch,
+    //&bfd_xtensa_arch,
+    //&bfd_xc16x_arch,
+    //&bfd_xgate_arch,
+    //&bfd_z80_arch,
+    //&bfd_z8k_arch,
 #endif
   0
 };

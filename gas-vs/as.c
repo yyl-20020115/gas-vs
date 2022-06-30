@@ -45,6 +45,11 @@
 #include "bfdver.h"
 #include "write.h"
 
+#include <sys/stat.h>
+#ifndef S_ISREG
+#define S_ISREG(f) (f&_S_IFREG)!=0
+#endif
+
 #ifdef HAVE_ITBL_CPU
 #include "itbl-ops.h"
 #else

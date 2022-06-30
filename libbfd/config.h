@@ -39,7 +39,7 @@
 
 /* Define to 1 if you have the declaration of `fseeko', and to 0 if you don't.
    */
-#define HAVE_DECL_FSEEKO 1
+//#define HAVE_DECL_FSEEKO 1
 
 /* Define to 1 if you have the declaration of `fseeko64', and to 0 if you
    don't. */
@@ -87,19 +87,19 @@
 /* #undef HAVE_FOPEN64 */
 
 /* Define to 1 if you have the `fseeko' function. */
-#define HAVE_FSEEKO 1
+//#define HAVE_FSEEKO 1
 
 /* Define to 1 if you have the `fseeko64' function. */
 /* #undef HAVE_FSEEKO64 */
 
 /* Define to 1 if you have the `ftello' function. */
-#define HAVE_FTELLO 1
+//#define HAVE_FTELLO 1
 
 /* Define to 1 if you have the `ftello64' function. */
 /* #undef HAVE_FTELLO64 */
 
 /* Define to 1 if you have the `getgid' function. */
-#define HAVE_GETGID 1
+//#define HAVE_GETGID 1
 
 /* Define to 1 if you have the `getpagesize' function. */
 #define HAVE_GETPAGESIZE 1
@@ -108,7 +108,7 @@
 #undef HAVE_GETRLIMIT
 
 /* Define to 1 if you have the `getuid' function. */
-#define HAVE_GETUID 1
+//#define HAVE_GETUID 1
 
 /* Define if your compiler supports hidden visibility. */
 /* #undef HAVE_HIDDEN */

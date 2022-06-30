@@ -26,6 +26,10 @@
 #include "libbfd.h"
 #include "libiberty.h"
 #include "elf-bfd.h"
+#include <sys/stat.h>
+#ifndef S_ISREG
+#define S_ISREG(f) (f&_S_IFREG)!=0
+#endif
 
 #ifndef S_IXUSR
 #define S_IXUSR 0100	/* Execute by owner.  */

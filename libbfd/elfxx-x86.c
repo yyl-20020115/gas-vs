@@ -19,7 +19,7 @@
    MA 02110-1301, USA.  */
 
 #include "elfxx-x86.h"
-#include "elf-vxworks.h"
+//#include "elf-vxworks.h"
 #include "objalloc.h"
 
 /* The name of the dynamic interpreter.  This is put in the .interp

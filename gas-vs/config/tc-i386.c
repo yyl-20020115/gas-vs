@@ -31,7 +31,7 @@
 #include "dwarf2dbg.h"
 #include "dw2gencfi.h"
 #include "elf/x86-64.h"
-#include "opcodes/i386-init.h"
+#include <../libopcodes/i386-init.h>
 #include <limits.h>
 
 #ifndef INFER_ADDR_PREFIX
@@ -2992,6 +2992,7 @@ set_cpu_arch (int dummy ATTRIBUTE_UNUSED)
 enum bfd_architecture
 i386_arch (void)
 {
+#if 0
   if (cpu_arch_isa == PROCESSOR_L1OM)
     {
       if (OUTPUT_FLAVOR != bfd_target_elf_flavour
@@ -3006,6 +3007,7 @@ i386_arch (void)
 	as_fatal (_("Intel K1OM is 64bit ELF only"));
       return bfd_arch_k1om;
     }
+#
   else if (cpu_arch_isa == PROCESSOR_IAMCU)
     {
       if (OUTPUT_FLAVOR != bfd_target_elf_flavour
@@ -3014,15 +3016,18 @@ i386_arch (void)
       return bfd_arch_iamcu;
     }
   else
-    return bfd_arch_i386;
+#endif
+	  return bfd_arch_i386;
 }
 
 unsigned long
 i386_mach (void)
 {
+
   if (startswith (default_arch, "x86_64"))
     {
-      if (cpu_arch_isa == PROCESSOR_L1OM)
+#if 0
+	  if (cpu_arch_isa == PROCESSOR_L1OM)
 	{
 	  if (OUTPUT_FLAVOR != bfd_target_elf_flavour
 	      || default_arch[6] != '\0')
@@ -3036,7 +3041,10 @@ i386_mach (void)
 	    as_fatal (_("Intel K1OM is 64bit ELF only"));
 	  return bfd_mach_k1om;
 	}
-      else if (default_arch[6] == '\0')
+      else 
+		  
+#endif
+		  if (default_arch[6] == '\0')
 	return bfd_mach_x86_64;
       else
 	return bfd_mach_x64_32;

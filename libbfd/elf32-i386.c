@@ -19,7 +19,7 @@
    MA 02110-1301, USA.  */
 
 #include "elfxx-x86.h"
-#include "elf-vxworks.h"
+//#include "elf-vxworks.h"
 #include "dwarf2.h"
 #include "opcode/i386.h"
 

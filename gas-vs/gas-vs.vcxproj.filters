@@ -105,6 +105,15 @@
     <ClCompile Include="write.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="config\tc-i386.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="config\atof-ieee.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="config\obj-coff.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="as.h">

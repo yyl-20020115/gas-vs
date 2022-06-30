@@ -720,12 +720,12 @@ to find an alternative output format that is suitable.
 //extern const bfd_target d10v_elf32_vec;
 //extern const bfd_target d30v_elf32_vec;
 //extern const bfd_target dlx_elf32_be_vec;
-extern const bfd_target elf32_be_vec;
-extern const bfd_target elf32_le_vec;
-extern const bfd_target elf64_be_vec;
-extern const bfd_target elf64_le_vec;
-extern const bfd_target bpf_elf64_le_vec;
-extern const bfd_target bpf_elf64_be_vec;
+//extern const bfd_target elf32_be_vec;
+//extern const bfd_target elf32_le_vec;
+//extern const bfd_target elf64_be_vec;
+//extern const bfd_target elf64_le_vec;
+//extern const bfd_target bpf_elf64_le_vec;
+//extern const bfd_target bpf_elf64_be_vec;
 //extern const bfd_target epiphany_elf32_vec;
 //extern const bfd_target fr30_elf32_vec;
 //extern const bfd_target frv_elf32_vec;
@@ -745,23 +745,23 @@ extern const bfd_target i386_coff_vec;
 //extern const bfd_target i386_coff_go32_vec;
 //extern const bfd_target i386_coff_go32stubbed_vec;
 //extern const bfd_target i386_coff_lynx_vec;
-extern const bfd_target i386_elf32_vec;
-extern const bfd_target i386_elf32_fbsd_vec;
-extern const bfd_target i386_elf32_sol2_vec;
-extern const bfd_target i386_elf32_vxworks_vec;
+//extern const bfd_target i386_elf32_vec;
+//extern const bfd_target i386_elf32_fbsd_vec;
+//extern const bfd_target i386_elf32_sol2_vec;
+//extern const bfd_target i386_elf32_vxworks_vec;
 //extern const bfd_target i386_mach_o_vec;
 //extern const bfd_target i386_msdos_vec;
-extern const bfd_target i386_pe_vec;
-extern const bfd_target i386_pe_big_vec;
-extern const bfd_target i386_pei_vec;
-extern const bfd_target iamcu_elf32_vec;
-extern const bfd_target ia64_elf32_be_vec;
-extern const bfd_target ia64_elf32_hpux_be_vec;
-extern const bfd_target ia64_elf64_be_vec;
-extern const bfd_target ia64_elf64_le_vec;
-extern const bfd_target ia64_elf64_hpux_be_vec;
-extern const bfd_target ia64_elf64_vms_vec;
-extern const bfd_target ia64_pei_vec;
+//extern const bfd_target i386_pe_vec;
+//extern const bfd_target i386_pe_big_vec;
+//extern const bfd_target i386_pei_vec;
+//extern const bfd_target iamcu_elf32_vec;
+//extern const bfd_target ia64_elf32_be_vec;
+//extern const bfd_target ia64_elf32_hpux_be_vec;
+//extern const bfd_target ia64_elf64_be_vec;
+//extern const bfd_target ia64_elf64_le_vec;
+//extern const bfd_target ia64_elf64_hpux_be_vec;
+//extern const bfd_target ia64_elf64_vms_vec;
+//extern const bfd_target ia64_pei_vec;
 //extern const bfd_target ip2k_elf32_vec;
 //extern const bfd_target iq2000_elf32_vec;
 //extern const bfd_target lm32_elf32_vec;
@@ -924,12 +924,12 @@ extern const bfd_target sym_vec;
 //extern const bfd_target wasm_vec;
 //extern const bfd_target wasm32_elf32_vec;
 extern const bfd_target x86_64_coff_vec;
-extern const bfd_target x86_64_elf32_vec;
-extern const bfd_target x86_64_elf64_vec;
-extern const bfd_target x86_64_elf64_cloudabi_vec;
-extern const bfd_target x86_64_elf64_fbsd_vec;
-extern const bfd_target x86_64_elf64_sol2_vec;
-extern const bfd_target x86_64_mach_o_vec;
+//extern const bfd_target x86_64_elf32_vec;
+//extern const bfd_target x86_64_elf64_vec;
+//extern const bfd_target x86_64_elf64_cloudabi_vec;
+//extern const bfd_target x86_64_elf64_fbsd_vec;
+//extern const bfd_target x86_64_elf64_sol2_vec;
+//extern const bfd_target x86_64_mach_o_vec;
 extern const bfd_target x86_64_pe_vec;
 extern const bfd_target x86_64_pe_big_vec;
 extern const bfd_target x86_64_pei_vec;
@@ -1058,11 +1058,11 @@ static const bfd_target * const _bfd_target_vector[] =
 	   But that does not mean they are unnecessary.  If configured with
 	   --enable-targets=all, objdump or gdb should be able to examine
 	   the file even if we don't recognize the machine type.  */
-	&elf32_be_vec,
-	&elf32_le_vec,
+	//&elf32_be_vec,
+	//&elf32_le_vec,
 #ifdef BFD64
-	&elf64_be_vec,
-	&elf64_le_vec,
+	//&elf64_be_vec,
+	//&elf64_le_vec,
 #endif
 
 	//&epiphany_elf32_vec,
@@ -1091,33 +1091,33 @@ static const bfd_target * const _bfd_target_vector[] =
 	//&i386_coff_go32_vec,
 	//&i386_coff_go32stubbed_vec,
 	//&i386_coff_lynx_vec,
-	&i386_elf32_vec,
-	&i386_elf32_fbsd_vec,
-	&i386_elf32_sol2_vec,
-	&i386_elf32_vxworks_vec,
+	//&i386_elf32_vec,
+	//&i386_elf32_fbsd_vec,
+	//&i386_elf32_sol2_vec,
+	//&i386_elf32_vxworks_vec,
 	//&i386_mach_o_vec,
 	//&i386_msdos_vec,
-	&i386_pe_vec,
-	&i386_pe_big_vec,
-	&i386_pei_vec,
+	//&i386_pe_vec,
+	//&i386_pe_big_vec,
+	//&i386_pei_vec,
 
-	&iamcu_elf32_vec,
+	//&iamcu_elf32_vec,
 
 #ifdef BFD64
-	&bpf_elf64_be_vec,
-	&bpf_elf64_le_vec,
+	//&bpf_elf64_be_vec,
+	//&bpf_elf64_le_vec,
 #endif
 
 #ifdef BFD64
 #if 0
 	&ia64_elf32_be_vec,
 #endif
-	&ia64_elf32_hpux_be_vec,
-	&ia64_elf64_be_vec,
-	&ia64_elf64_le_vec,
-	&ia64_elf64_hpux_be_vec,
-	&ia64_elf64_vms_vec,
-	&ia64_pei_vec,
+	//&ia64_elf32_hpux_be_vec,
+	//&ia64_elf64_be_vec,
+	//&ia64_elf64_le_vec,
+	//&ia64_elf64_hpux_be_vec,
+	//&ia64_elf64_vms_vec,
+	//&ia64_pei_vec,
 #endif
 
 	//&ip2k_elf32_vec,
@@ -1333,12 +1333,12 @@ static const bfd_target * const _bfd_target_vector[] =
 
 #ifdef BFD64
 	&x86_64_coff_vec,
-	&x86_64_elf32_vec,
-	&x86_64_elf64_vec,
-	&x86_64_elf64_cloudabi_vec,
-	&x86_64_elf64_fbsd_vec,
-	&x86_64_elf64_sol2_vec,
-	&x86_64_mach_o_vec,
+	//&x86_64_elf32_vec,
+	//&x86_64_elf64_vec,
+	//&x86_64_elf64_cloudabi_vec,
+	//&x86_64_elf64_fbsd_vec,
+	//&x86_64_elf64_sol2_vec,
+	//&x86_64_mach_o_vec,
 	&x86_64_pe_vec,
 	&x86_64_pe_big_vec,
 	&x86_64_pei_vec,
@@ -1369,9 +1369,9 @@ static const bfd_target * const _bfd_target_vector[] =
 	&srec_vec,
 	&symbolsrec_vec,
 /* And verilog.  */
-	&verilog_vec,
+//	&verilog_vec,
 /* And tekhex */
-	&tekhex_vec,
+//	&tekhex_vec,
 /* Likewise for binary output.  */
 	&binary_vec,
 /* Likewise for ihex.  */

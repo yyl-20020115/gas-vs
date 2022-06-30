@@ -47,6 +47,10 @@ was made to unlink the file because it is special.
 #if HAVE_SYS_STAT_H
 #include <sys/stat.h>
 #endif
+#include <sys/stat.h>
+#ifndef S_ISREG
+#define S_ISREG(f) (f&_S_IFREG)!=0
+#endif
 
 #include "libiberty.h"
 

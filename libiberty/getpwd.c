@@ -44,7 +44,6 @@ extern int errno;
 /* Virtually every UN*X system now in common use (except for pre-4.3-tahoe
    BSD systems) now provides getcwd as called for by POSIX.  Allow for
    the few exceptions to the general rule here.  */
-
 #if !defined(HAVE_GETCWD) && defined(HAVE_GETWD)
 /* Prototype in case the system headers doesn't provide it. */
 extern char *getwd ();
@@ -117,7 +116,7 @@ getpwd (void)
   static char *pwd = 0;
 
   if (!pwd)
-    pwd = getcwd (XNEWVEC (char, MAXPATHLEN + 1), MAXPATHLEN + 1
+    pwd = _getcwd (XNEWVEC (char, MAXPATHLEN + 1), MAXPATHLEN + 1
 #ifdef VMS
 		  , 0
 #endif

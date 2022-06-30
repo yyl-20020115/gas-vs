@@ -94,6 +94,7 @@
 #if !HAVE_DECL_FFS
 extern int ffs (int);
 #endif
+#include <sys/types.h>
 
 #if !HAVE_DECL_STPCPY
 extern char *stpcpy (char *__dest, const char *__src);

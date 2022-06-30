@@ -36,7 +36,7 @@
 #define HAVE_CALLOC 1
 
 /* Define to 1 if you have the `canonicalize_file_name' function. */
-#define HAVE_CANONICALIZE_FILE_NAME 1
+//#define HAVE_CANONICALIZE_FILE_NAME 1
 
 /* Define to 1 if you have the `clock' function. */
 #define HAVE_CLOCK 1
@@ -218,7 +218,7 @@
 #define HAVE_RANDOM 1
 
 /* Define to 1 if you have the `realpath' function. */
-#define HAVE_REALPATH 1
+//#define HAVE_REALPATH 1
 
 /* Define to 1 if you have the `rename' function. */
 #define HAVE_RENAME 1
@@ -296,7 +296,7 @@
 #define HAVE_STRRCHR 1
 
 /* Define to 1 if you have the `strsignal' function. */
-#define HAVE_STRSIGNAL 1
+//#define HAVE_STRSIGNAL 1
 
 /* Define to 1 if you have the `strstr' function. */
 #define HAVE_STRSTR 1
@@ -353,7 +353,7 @@
 #define HAVE_SYS_RESOURCE_H 0
 
 /* Define if you have the sys_siglist variable. */
-#define HAVE_SYS_SIGLIST 1
+//#define HAVE_SYS_SIGLIST 1
 
 /* Define to 1 if you have the <sys/stat.h> header file. */
 #define HAVE_SYS_STAT_H 1

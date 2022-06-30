@@ -41,6 +41,15 @@
 #include "wchar.h"
 
 #include <limits.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#ifndef S_ISREG
+#define S_ISREG(f) (f&_S_IFREG)!=0
+#endif
+
+#ifndef S_ISDIR
+#define S_ISDIR(f) (f&_S_IFDIR)!=0
+#endif
 
 #ifndef TC_START_LABEL
 #define TC_START_LABEL(STR, NUL_CHAR, NEXT_CHAR) (NEXT_CHAR == ':')
